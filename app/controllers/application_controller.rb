@@ -23,12 +23,9 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:username])
   end
 
-<<<<<<< HEAD
   private
 
   def skip_pundit?
     devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
   end
-=======
->>>>>>> 875082b5445857e785693befafbecb30865934fa
 end
