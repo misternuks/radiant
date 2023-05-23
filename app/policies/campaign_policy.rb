@@ -11,6 +11,7 @@ class CampaignPolicy < ApplicationPolicy
     record.user == user
   end
 
+
   def update?
     true
   end
@@ -28,6 +29,7 @@ class CampaignPolicy < ApplicationPolicy
     def resolve
       scope.where(user:)
     end
+
   end
 
 end
