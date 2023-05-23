@@ -5,4 +5,10 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  resources :campaign do
+    resources :player
+    resources :encounter do
+      resources :target
+    end
+  end
 end
