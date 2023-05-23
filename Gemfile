@@ -50,6 +50,7 @@ gem "sassc-rails"
 
 # My installed gems:
 gem "faker"
+gem "pundit"
 
 gem "devise"
 gem "autoprefixer-rails"
