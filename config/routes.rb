@@ -7,4 +7,7 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :campaigns
   resources :players, only: [:destroy]
+  resources :campaigns do
+    resources :encounters, only: %i[show new create]
+  end
 end
