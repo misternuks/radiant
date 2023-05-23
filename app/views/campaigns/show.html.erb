@@ -1,0 +1,12 @@
+<h1><%= @campaign.world_name %></h1>
+<div class="card p-3 m-3">
+  <div class="card">
+    <p>Biome: <%= @campaign.world_biome.capitalize  %></p>
+    <p>Mood: <%= @campaign.world_mood.capitalize  %></p>
+    <p>Weather: <%= @campaign.world_weather.capitalize  %></p>
+  </div>
+  <% @campaign.players.each do |player| %>
+    <div class="card m-3 p-3">
+      <%= player.character_name %></div>
+  <% end %></div>
+<%= link_to 'Back', campaigns_path  %>

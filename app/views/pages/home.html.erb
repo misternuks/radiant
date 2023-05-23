@@ -1,8 +1,9 @@
 <% if current_user %>
-  <%= current_user.id %>
+  Welcome user number <%= current_user.id %>!
 <% end %>
 <h1 class='mb-3'>The newest member of your party. An AI assistant that joins you on your journey.</h1>
 <div class="card mb-3 p-3">Radiant is an AI powered assistant for game masters that provides procedurally generated, contextualized narrative prompts that helps keeps your narratives relevant and rich. </div>
 <div class="card p-3">Ready to get started?</div>
 <%= link_to 'Sign Up', new_user_registration_path  %>
 <%= link_to 'Log in', new_user_session_path  %>
+<%= link_to 'Campaigns', campaigns_path  %>
