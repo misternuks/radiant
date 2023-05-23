@@ -7,6 +7,9 @@
   </div>
   <% @campaign.players.each do |player| %>
     <div class="card m-3 p-3">
-      <%= player.character_name %></div>
+      <%= player.character_name %> <%=link_to "Delete",
+  player_path(player),
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+%></div>
   <% end %></div>
 <%= link_to 'Back', campaigns_path  %>

@@ -1,10 +1,5 @@
 class PlayerPolicy < ApplicationPolicy
-  class Scope < Scope
-    # NOTE: Be explicit about which records you allow access to!
-    def resolve
-      scope.where(user:)
-    end
-  end
+
 
   def show?
     record.user == user
@@ -27,6 +22,13 @@ class PlayerPolicy < ApplicationPolicy
   end
 
   def destroy?
-    record.user == user
+    user
+
+  end
+  class Scope < Scope
+    # NOTE: Be explicit about which records you allow access to!
+    def resolve
+      scope.where(user:)
+    end
   end
 end
