@@ -1,25 +1,19 @@
 class CampaignPolicy < ApplicationPolicy
-  class Scope < Scope
-    # NOTE: Be explicit about which records you allow access to!
-    def resolve
-      scope.where(user:)
-    end
-  end
-
   def show?
     record.user == user
+  end
+
+  def new?
+    user
   end
 
   def create?
     record.user == user
   end
 
-  def new?
-    create?
-  end
 
   def update?
-    record.user == user
+    true
   end
 
   def edit?
@@ -27,6 +21,15 @@ class CampaignPolicy < ApplicationPolicy
   end
 
   def destroy?
-    record.user == user
+    true
   end
+
+  class Scope < Scope
+    # NOTE: Be explicit about which records you allow access to!
+    def resolve
+      scope.where(user:)
+    end
+
+  end
+
 end
