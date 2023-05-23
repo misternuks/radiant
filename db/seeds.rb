@@ -10,7 +10,6 @@ puts 'Inserting the breakfast pastry...'
 Encounter.destroy_all
 TargetGroup.destroy_all
 Target.destroy_all
-Party.destroy_all
 Player.destroy_all
 Campaign.destroy_all
 User.destroy_all
