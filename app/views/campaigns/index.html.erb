@@ -1,6 +1,10 @@
 <h1>All campaigns</h1>
 <% @campaigns.each do |campaign| %>
-  <div class="card w-20 p-3 m-3"> <%=campaign.world_name %> <%= link_to 'Select', campaign_path(campaign)  %> </div>
+  <div class="card w-20 p-3 m-3"> <%=campaign.world_name %> <%= link_to 'Select', campaign_path(campaign)  %> <%=link_to "Delete",
+  campaign_path(campaign),
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+%>
+  </div>
 <% end %>
 <%= link_to 'Create your own', new_campaign_path, class: 'btn btn-primary'  %>
 <%= link_to 'Back', root_path  %>
