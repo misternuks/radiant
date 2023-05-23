@@ -1,2 +1,21 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<section >
+  <h1>GPT Test</h1>
+  <ul>
+
+  </ul>
+  <div>
+    <div class="input-container" data-controller="input-gpt">
+      <%= form_for :gpt, url: "pages_controller/gpt" do |f| %>
+          <%= f.label "Type something" %>
+          <%= f.text_field :ask,
+                           class: "form-control",
+                           data: {
+                            action: "submit->input-gpt#update",
+                            input_gpt_target: "input"
+                           }
+                           %>
+          <%= f.button :submit, class: "btn btn-primary"%>
+        <% end %>
+    </div>
+  </div>
+</section>

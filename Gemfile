@@ -50,6 +50,7 @@ gem "sassc-rails"
 
 # My installed gems:
 gem "faker"
+gem "ruby-openai"
 
 gem "devise"
 gem "autoprefixer-rails"
