@@ -6,6 +6,7 @@ class PagesController < ApplicationController
   end
 
   def gpt
+    @service = OpenaiService.new(params["super_url"]).call
     raise
   end
 end

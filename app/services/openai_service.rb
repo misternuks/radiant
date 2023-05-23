@@ -18,7 +18,7 @@ class OpenaiService
           stream: false
       })
     # you might want to inspect the response and see what the api is giving you
-    puts response["choices"][0]["message"]["content"]
+    return response["choices"][0]["message"]["content"]
   end
 
 
