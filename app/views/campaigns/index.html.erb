@@ -1,0 +1,6 @@
+<h1>All campaigns</h1>
+<% @campaigns.each do |campaign| %>
+  <div class="card w-20 p-3 m-3"> <%=campaign.world_name %> <%= link_to 'Select', campaign_path(campaign)  %> </div>
+<% end %>
+<%= link_to 'Create your own', root_path, class: 'btn btn-primary'  %>
+<%= link_to 'Back', root_path  %>
