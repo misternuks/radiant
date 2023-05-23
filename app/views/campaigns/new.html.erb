@@ -1,0 +1,20 @@
+<%= @user.email %>
+<div class="container">
+  <%= simple_form_for [@campaign], html: { data: { controller: 'nested-form', nested_form_wrapper_selector_value: '.nested-form-wrapper' }} do |f| %>
+    <%= f.input :world_name%>
+    <%= f.input :world_biome, :collection => %i[forest desert jungle plains cavern tundra city] %>
+    <%= f.input :world_weather, :collection => %i[clear cloudy rainy snowy windy stormy] %>
+    <%= f.input :world_mood, :collection => %i[comedic romantic dark epic medieval high] %>
+    <template data-nested-form-target="template">
+      <%= f.fields_for :players, Player.new, child_index: 'NEW_RECORD' do |player_fields| %>
+        <%= render "player_form", f: player_fields %>
+      <% end %>
+    </template>
+    <div data-nested-form-target="target"></div>
+    <button type="button" data-action="nested-form#add">Add character</button>
+    <div class="d-grid gap-2 col-3 mx-auto">
+      <%= f.button :submit, "Create world", class: "btn btn-primary"%>
+      <input class="btn btn-success" type="reset" value="Reset form">
+    </div>
+  <% end %>
+</div>
