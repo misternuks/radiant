@@ -28,6 +28,32 @@ class CampaignsController < ApplicationController
     end
   end
 
+  def edit
+    @campaign = Campaign.find(params[:id])
+    @user = current_user
+    @players = @campaign.players
+    authorize @campaign
+  end
+
+  def update
+    @campaign = Campaign.find(params[:id])
+    @campaign.players.destroy_all
+    authorize @campaign
+    if @campaign.update(campaign_params)
+      redirect_to campaign_path(@campaign)
+    else
+      render :index, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @campaign = Campaign.find(params[:id])
+    authorize @campaign
+    @campaign.destroy
+
+    redirect_to campaigns_path, status: :see_other
+  end
+
   private
 
   def campaign_params

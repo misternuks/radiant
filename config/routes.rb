@@ -5,5 +5,9 @@ Rails.application.routes.draw do
   post '/gpt_test', to: "pages#gpt"
   # Defines the root path route ("/")
   # root "articles#index"
-  resources :campaigns, only: %i[index show new create]
+  resources :campaigns
+  resources :players, only: [:destroy]
+  resources :campaigns do
+    resources :encounters, only: %i[show new create]
+  end
 end
