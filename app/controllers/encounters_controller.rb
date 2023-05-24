@@ -10,6 +10,7 @@ class EncountersController < ApplicationController
   def new
     @encounter = Encounter.new
     authorize @encounter
+    @encounter.targets.build
     @campaign = Campaign.find_by(user: current_user)
   end
 
@@ -37,6 +38,6 @@ class EncountersController < ApplicationController
   private
 
   def encounter_params
-    params.require(:encounter).permit(:skill_type, :success, :criticality, :summary)
+    params.require(:encounter).permit(:skill_type, :success, :criticality, :summary, targets_attributes: [:name])
   end
 end

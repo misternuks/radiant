@@ -8,8 +8,6 @@
 
 puts 'Inserting the breakfast pastry...'
 Encounter.destroy_all
-TargetGroup.destroy_all
-Target.destroy_all
 Player.destroy_all
 Campaign.destroy_all
 User.destroy_all
@@ -53,8 +51,12 @@ end
 puts 'Yum...'
 count = 0
 20.times do
-  Target.create!(
-    name: Faker::Fantasy::Tolkien.race
+  Player.create!(
+    player_name: "DM",
+    character_name: Faker::Fantasy::Tolkien.character,
+    character_class: Faker::Fantasy::Tolkien.race,
+    is_enemy: true,
+    campaign: Campaign.all.sample
   )
   puts count += 1
 end
