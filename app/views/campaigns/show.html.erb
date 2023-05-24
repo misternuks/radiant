@@ -11,5 +11,6 @@
   player_path(player),
   data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
 %></div>
-  <% end %></div>
+  <% end %>
+  <%= link_to 'Play', new_campaign_encounter_path(@campaign) %></div>
 <%= link_to 'Back', campaigns_path  %>
