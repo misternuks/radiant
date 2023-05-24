@@ -7,6 +7,7 @@ class CampaignsController < ApplicationController
     @campaign = Campaign.all.find(params[:id])
     @user = current_user
     authorize @campaign
+    @service = OpenaiService.new("Create a description with a tone of #{@campaign.world_mood} DND world in 75 words using these params [World Name:#{@campaign.world_name}, Biome:#{@campaign.world_biome}, Weather:#{@campaign.world_weather}").call
   end
 
   def new
@@ -28,31 +29,6 @@ class CampaignsController < ApplicationController
     end
   end
 
-  def edit
-    @campaign = Campaign.find(params[:id])
-    @user = current_user
-    @players = @campaign.players
-    authorize @campaign
-  end
-
-  def update
-    @campaign = Campaign.find(params[:id])
-    @campaign.players.destroy_all
-    authorize @campaign
-    if @campaign.update(campaign_params)
-      redirect_to campaign_path(@campaign)
-    else
-      render :index, status: :unprocessable_entity
-    end
-  end
-
-  def destroy
-    @campaign = Campaign.find(params[:id])
-    authorize @campaign
-    @campaign.destroy
-
-    redirect_to campaigns_path, status: :see_other
-  end
 
   private
 
