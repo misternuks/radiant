@@ -1,20 +1,43 @@
-<%= @user.email %>
-<div class="container">
-  <%= simple_form_for [@campaign], html: { data: { controller: 'nested-form', nested_form_wrapper_selector_value: '.nested-form-wrapper' }} do |f| %>
-    <%= f.input :world_name%>
-    <%= f.input :world_biome, :collection => %i[forest desert jungle plains cavern tundra city] %>
-    <%= f.input :world_weather, :collection => %i[clear cloudy rainy snowy windy stormy] %>
-    <%= f.input :world_mood, :collection => %i[comedic romantic dark epic medieval high] %>
-    <template data-nested-form-target="template">
-      <%= f.fields_for :players, Player.new, child_index: 'NEW_RECORD' do |player_fields| %>
-        <%= render "player_form", f: player_fields %>
-      <% end %>
-    </template>
-    <div data-nested-form-target="target"></div>
-    <button type="button" data-action="nested-form#add">Add character</button>
-    <div class="d-grid gap-2 col-3 mx-auto">
-      <%= f.button :submit, "Create world", class: "btn btn-primary"%>
-      <input class="btn btn-success" type="reset" value="Reset form">
+<div class="world-background-image-div">
+  <%= @user.email %>
+  <div class="world-card-container">
+    <div class="world-card">
+      <!-- Upper div with circular icon and text -->
+      <div class="world-card-header">
+        <%=  image_tag("rogue-portrait.jpg", alt:"portrait", class:"world-card-icon") %>
+        <p class="header-text">AI Created World</p>
+      </div>
+      <!-- Middle div with image -->
+      <div class="world-card-image img">
+        <%= image_tag("forest.jpg", alt:"Image") %>
+      </div>
+      <!-- Lower div with four elements containing small text -->
+      <div class="world-card-footer">
+        <p class="world-footer-text">Campaign Name</p>
+        <p class="world-footer-text">Biome</p>
+        <p class="world-footer-text">Weather</p>
+        <p class="world-footer-text">Mood</p>
+        <p class="world-footer-text">World Description</p>
+      </div>
     </div>
-  <% end %>
+  </div>
+  <div class="world-form-container">
+    <%= simple_form_for [@campaign], html: { class: "simple-form-length"}, html: { data: { controller: 'nested-form', nested_form_wrapper_selector_value: '.nested-form-wrapper' }} do |f| %>
+      <%= f.input :world_name%>
+      <%= f.input :world_biome, :collection => %i[forest desert jungle plains cavern tundra city] %>
+      <%= f.input :world_weather, :collection => %i[clear cloudy rainy snowy windy stormy] %>
+      <%= f.input :world_mood, :collection => %i[comedic romantic dark epic medieval high] %>
+      <template data-nested-form-target="template">
+        <%= f.fields_for :players, Player.new, child_index: 'NEW_RECORD' do |player_fields| %>
+          <%= render "player_form", f: player_fields %>
+        <% end %>
+      </template>
+      <div data-nested-form-target="target"></div>
+      <button type="button" data-action="nested-form#add">Add character</button>
+      <div class="d-grid gap-2 col-3 pb-3 mx-auto">
+        <%= f.button :submit, "Create world", class: "btn btn-primary"%>
+        <input class="btn btn-success" type="reset" value="Reset form">
+      </div>
+    <% end %>
+  </div>
 </div>
