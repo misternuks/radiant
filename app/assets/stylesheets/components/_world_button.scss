@@ -1,0 +1,16 @@
+.world-button {
+  background-color: #932688;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  border-radius: 24px;
+  transition: background-color 0.3s ease;
+  opacity: 0.8;
+}
+
+.world-button:hover {
+  background-color: #b347a9;
+}
