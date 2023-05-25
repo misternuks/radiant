@@ -1,9 +1,21 @@
-<h1>All campaigns</h1>
+<div class="all-campaigns-h1-container">
+  <div class="all-campaigns-h1">
+    <h1>ALL CAMPAIGNS</h1>
+  </div>
+</div>
 <% @campaigns.each do |campaign| %>
-  <div class="card w-20 p-3 m-3"> <%=campaign.world_name %> <%= link_to 'Select', campaign_path(campaign)  %> <%=link_to "Delete",
-  campaign_path(campaign),
-  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-%>
+  <div class="campaign-card-container">
+    <div class="campaign-card">
+      <%=campaign.world_name %> </div>
+    <div  class="campaign-card">
+      <%=image_tag"blue.jpg"%>
+    </div>
+    <div class="campaign-card" >
+      <%= link_to 'Select', campaign_path(campaign)  %>
+    </div>
+    <div class="campaign-card">
+      <%=link_to "Delete", campaign_path(campaign), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+    </div>
   </div>
 <% end %>
 <div class="world-index-buttons-container">
