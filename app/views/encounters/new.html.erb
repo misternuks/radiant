@@ -1,6 +1,5 @@
 <div class="container">
   <%= simple_form_for [@campaign, @encounter], html: { data: { controller: 'nested-form', nested_form_wrapper_selector_value: '.nested-form-wrapper' }} do |f| %>
-
     <template data-nested-form-target="template">
       <%= f.fields_for :enemies, Enemy.new, child_index: 'NEW_RECORD' do |enemy_fields| %>
         <%= render "encounter_form", f: enemy_fields %>

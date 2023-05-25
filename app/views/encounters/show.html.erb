@@ -2,8 +2,10 @@
 <div class="container">
   <div class="player-container d-flex">
     <% @encounter.players.each do |player| %>
-      <%= link_to edit_campaign_encounter_path(:campaign_id => @campaign.id, :player_id => player.id), class: 'text-decoration-none link-dark' do %>
-        <div class="card p-3 m-3"><%= player.player_name %>
+
+      <%= link_to edit_campaign_encounter_path(campaign_id: @campaign.id, character: player.character_name), class: 'text-decoration-none link-dark' do %>
+        <div class="card p-3 m-3"><%= player.character_name %>
+
         </div>
       <% end %>
     <% end %></div>
@@ -12,7 +14,7 @@
   </div>
   <div class="enemy-container d-flex">
     <% @encounter.enemies.each do |enemy| %>
-      <%= link_to edit_campaign_encounter_path(:campaign_id => @campaign.id, :enemy_id => enemy.id), class: 'text-decoration-none link-dark' do %>
+      <%= link_to edit_campaign_encounter_path(campaign_id: @campaign.id, enemy: enemy.name), class: 'text-decoration-none link-dark' do %>
         <div class="card p-3 m-3 "><%= enemy.name %>
         </div>
       <% end %>
