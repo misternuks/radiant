@@ -1,0 +1,128 @@
+
+.world-header-h2 {
+  color: white;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+}
+
+
+.world-background-image-div {
+  background: url('nebula.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+   /* vh stands for "viewport height", which makes the div at least as tall as the screen. */
+}
+
+
+.world-card-container {
+  display: flex;
+
+  h3 {
+    margin: 0;
+  }
+}
+
+.world-card {
+
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  color: #f1f3f3;
+  font-size: 24px;
+  transition: box-shadow 0.3s ease-in-out;
+  border-radius: 16px;
+  margin: 16px;
+  background-color: #181c24;
+  border: 3px solid #ffd7004d;
+  background-clip: padding-box;
+
+
+  background-image: linear-gradient(
+		135deg,
+		rgba(#752e7c, 0.35),
+		rgba(#734a58, 0.1) 15%,
+		#1b2028 20%,
+		#1b2028 100%
+	);
+	&:after {
+		content: "";
+		display: block;
+		top: -3px;
+		left: -3px;
+		bottom: -3px;
+		right: -3px;
+		z-index: -1;
+		position: absolute;
+		border-radius: 16px;
+		background-image: linear-gradient(
+			135deg,
+			#752e7c,
+			#734a58 20%,
+			#1b2028 30%,
+			#2c333e 100%
+		);
+	}
+
+  p {
+    margin: 0;
+  }
+
+}
+
+.world-card:hover {
+    box-shadow: 0px 0px 20px 10px rgba(113, 78, 124, 0.7); /* Your glowing effect, adjust as needed */
+}
+
+.world-card-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 16px;
+
+}
+
+.world-card-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px;
+}
+
+
+.world-card-image img {
+  width: 100%;  /* Makes the image take up the full width of its container */
+  height: 390px;  /* This keeps the image's original aspect ratio */
+  object-fit: cover;  /* This ensures that the image covers the whole area of its container, cropping if necessary */
+  display: block;  /* This removes the default inline-block nature of images */
+  margin: 0 auto;  /* This centers the image */
+
+
+}
+
+.world-card-icon {
+  width: 80px;      /* Adjust these values to your preferred size */
+  height: 80px;     /* Adjust these values to your preferred size */
+  border-radius: 50%; /* Makes the image round */
+  object-fit: cover;  /* Ensures the image covers the whole area and remains centered */
+
+}
+
+.world-footer-text {
+  padding: 16px;
+  text-align: center;
+}
+
+.world-form-container {
+  color: white;
+  max-width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  border-radius: 16px;
+
+}

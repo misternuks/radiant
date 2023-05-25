@@ -1,0 +1,45 @@
+.template-card {
+  display: flex;
+  flex-direction: column;
+  height: 480px;
+  width: 360px;
+  color: black;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 16px;
+
+}
+
+.template-card-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 8px;
+
+}
+
+.template-card-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px;
+}
+
+
+.template-card-image img {
+  width: 100%;  /* Makes the image take up the full width of its container */
+  height: auto;  /* This keeps the image's original aspect ratio */
+  object-fit: cover;  /* This ensures that the image covers the whole area of its container, cropping if necessary */
+  display: block;  /* This removes the default inline-block nature of images */
+  margin: 0 auto;  /* This centers the image */
+
+
+}
+
+.template-card-icon {
+  width: 50px;      /* Adjust these values to your preferred size */
+  height: 50px;     /* Adjust these values to your preferred size */
+  border-radius: 50%; /* Makes the image round */
+  object-fit: cover;  /* Ensures the image covers the whole area and remains centered */
+}
