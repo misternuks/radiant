@@ -1,33 +1,31 @@
-<section >
-  <h1>GPT Test</h1>
-  <ul>
-  </ul>
-  <div>
-    <div class="input-container" data-controller="input-gpt">
-      <%= form_for :gpt, url: "pages_controller/gpt" do |f| %>
-        <%= f.label "Type something" %>
-        <%= f.text_field :ask,
-                           class: "form-control",
-                           data: {
-                            action: "submit->input-gpt#update",
-                            input_gpt_target: "input"
-                           }
-                           %>
-        <%= f.button :submit, class: "btn btn-primary"%>
-      <% end %>
+
+<div class="homepage_background_container">
+  <h1>Radiant</h1>
+  <div class="homepage_middle_div row">
+    <div class="homepage_left_div col-6 ">
+      <h2>The newest member of your party. An AI assistant that joins you on your journey.</h2>
+      <p class="homepage-text-card", style="margin-top: 4vh">Radiant is an AI powered assistant for game masters that provides procedurally generated, contextualized narrative prompts that helps keeps your narratives relevant and rich. </p>
+      <div class="homepage_button_div">
+        <% if current_user %>
+          <p class="homepage-purple-button" style=" width:40%; ">Welcome  <%= current_user.username %></p>
+          <%= link_to "Sign out", destroy_user_session_path, data: {turbo_method: :delete}, class: "homepage-purple-button", style: "width: 30%"%>
+        <% else%>
+          <%= link_to 'Sign Up', new_user_registration_path,class: "homepage-purple-button", style: "width: 30%" %>
+          <%= link_to 'Log in', new_user_session_path, class: "homepage-purple-button", style: "width: 30%"%>
+        <% end %>
+      </div>
+    </div>
+    <div class="homepage_right_div col-6">
+      <h2 style="margin-bottom: 20px">Start your campaign</h2>
+      <%= link_to 'Campaigns', campaigns_path, class: "homepage-purple-button", style: "width: 30%"%>
     </div>
   </div>
-  <%= form_tag '/gpt_test' do %>
-    <%= text_field_tag(:super_url) %>
-    <%= submit_tag("name")%>
-  <% end %>
-</section>
-<% if current_user %>
-  Welcome user number <%= current_user.id %>!
-<% end %>
-<h1 class='mb-3'>The newest member of your party. An AI assistant that joins you on your journey.</h1>
-<div class="card mb-3 p-3">Radiant is an AI powered assistant for game masters that provides procedurally generated, contextualized narrative prompts that helps keeps your narratives relevant and rich. </div>
-<div class="card p-3">Ready to get started?</div>
-<%= link_to 'Sign Up', new_user_registration_path  %>
-<%= link_to 'Log in', new_user_session_path  %>
-<%= link_to 'Campaigns', campaigns_path  %>
+</div>
+
+
+
+
+<%# <%= form_tag '/gpt_test' do %>
+      <%# <%= text_field_tag(:super_url) %>
+      <%# <%= submit_tag("name")%>
+  <%# <% end %>
