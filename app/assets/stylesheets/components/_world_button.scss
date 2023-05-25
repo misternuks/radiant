@@ -14,3 +14,20 @@
 .world-button:hover {
   background-color: #b347a9;
 }
+
+.world-button-small {
+  background-color: purple;
+  color: white;
+  padding: 8px 16px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  opacity: 0.8;
+}
+
+.world-button-small:hover {
+  background-color: #b347a9;
+}
