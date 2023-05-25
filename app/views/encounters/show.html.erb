@@ -1,11 +1,9 @@
-<%= @campaign.world_name %>
-<div class="container">
+<div class="container p-5 m-5">
+  <h1>Roll for initiative! Whose turn is it?</h1>
   <div class="player-container d-flex">
     <% @encounter.players.each do |player| %>
-
       <%= link_to edit_campaign_encounter_path(campaign_id: @campaign.id, character: player.character_name), class: 'text-decoration-none link-dark' do %>
         <div class="card p-3 m-3"><%= player.character_name %>
-
         </div>
       <% end %>
     <% end %></div>
