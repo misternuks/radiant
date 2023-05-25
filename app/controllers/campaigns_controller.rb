@@ -7,7 +7,7 @@ class CampaignsController < ApplicationController
     @campaign = Campaign.all.find(params[:id])
     @user = current_user
     authorize @campaign
-    @service = OpenaiService.new("Create a description with a tone of #{@campaign.world_mood} DND world in 75 words using these params [World Name:#{@campaign.world_name}, Biome:#{@campaign.world_biome}, Weather:#{@campaign.world_weather}").call
+    # @service = OpenaiService.new("Create a description with a tone of #{@campaign.world_mood} DND world in 75 words using these params [World Name:#{@campaign.world_name}, Biome:#{@campaign.world_biome}, Weather:#{@campaign.world_weather}").call
   end
 
   def new
@@ -28,7 +28,6 @@ class CampaignsController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
-
 
   private
 
