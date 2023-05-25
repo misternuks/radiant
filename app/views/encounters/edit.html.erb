@@ -14,6 +14,7 @@
       <%= f.input :success, label: false %>
       <%= f.label :criticality, 'Was the attack a killing blow?' %>
       <%= f.input :criticality, label: false %>
+      <% f.hidden_field :summary, :value => "hello" %>
       <%= f.button :submit, 'Make it so, number 1.', class: 'world-button' %>
     <% end %>
   </div>
