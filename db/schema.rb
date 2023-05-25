@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_25_054540) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_25_070348) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -22,6 +22,20 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_25_054540) do
     t.datetime "updated_at", null: false
     t.index ["encounter_id"], name: "index_active_players_on_encounter_id"
     t.index ["player_id"], name: "index_active_players_on_player_id"
+  end
+
+  create_table "ai_texts", force: :cascade do |t|
+    t.text "text"
+    t.bigint "campaign_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["campaign_id"], name: "index_ai_texts_on_campaign_id"
+  end
+
+  create_table "ai_world_texts", force: :cascade do |t|
+    t.text "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "campaigns", force: :cascade do |t|
@@ -79,6 +93,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_25_054540) do
 
   add_foreign_key "active_players", "encounters"
   add_foreign_key "active_players", "players"
+  add_foreign_key "ai_texts", "campaigns"
   add_foreign_key "campaigns", "users"
   add_foreign_key "enemies", "encounters"
   add_foreign_key "players", "campaigns"
