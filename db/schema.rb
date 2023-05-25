@@ -10,9 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_23_024020) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_24_072425) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "active_players", force: :cascade do |t|
+    t.bigint "player_id", null: false
+    t.bigint "encounter_id", null: false
+    t.integer "initiative", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["encounter_id"], name: "index_active_players_on_encounter_id"
+    t.index ["player_id"], name: "index_active_players_on_player_id"
+  end
 
   create_table "campaigns", force: :cascade do |t|
     t.string "world_name"
@@ -32,17 +42,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_23_024020) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "summary"
-    t.bigint "campaign_id", null: false
-    t.index ["campaign_id"], name: "index_encounters_on_campaign_id"
   end
 
-  create_table "parties", force: :cascade do |t|
-    t.bigint "player_id", null: false
+  create_table "enemies", force: :cascade do |t|
+    t.string "name"
     t.bigint "encounter_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["encounter_id"], name: "index_parties_on_encounter_id"
-    t.index ["player_id"], name: "index_parties_on_player_id"
+    t.index ["encounter_id"], name: "index_enemies_on_encounter_id"
   end
 
   create_table "players", force: :cascade do |t|
@@ -52,22 +59,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_23_024020) do
     t.bigint "campaign_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "is_enemy", default: false
     t.index ["campaign_id"], name: "index_players_on_campaign_id"
-  end
-
-  create_table "target_groups", force: :cascade do |t|
-    t.bigint "target_id", null: false
-    t.bigint "encounter_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["encounter_id"], name: "index_target_groups_on_encounter_id"
-    t.index ["target_id"], name: "index_target_groups_on_target_id"
-  end
-
-  create_table "targets", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -83,11 +76,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_23_024020) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "active_players", "encounters"
+  add_foreign_key "active_players", "players"
   add_foreign_key "campaigns", "users"
-  add_foreign_key "encounters", "campaigns"
-  add_foreign_key "parties", "encounters"
-  add_foreign_key "parties", "players"
+  add_foreign_key "enemies", "encounters"
   add_foreign_key "players", "campaigns"
-  add_foreign_key "target_groups", "encounters"
-  add_foreign_key "target_groups", "targets"
 end

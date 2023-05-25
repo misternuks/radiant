@@ -1,6 +1,6 @@
 require "test_helper"
 
-class TargetGroupTest < ActiveSupport::TestCase
+class EnemyTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

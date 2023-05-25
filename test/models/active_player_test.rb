@@ -1,6 +1,6 @@
 require "test_helper"
 
-class PartyTest < ActiveSupport::TestCase
+class ActivePlayerTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

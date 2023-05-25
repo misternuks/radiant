@@ -1,8 +1,9 @@
 class Encounter < ApplicationRecord
-  belongs_to :party
-  belongs_to :target_group
-  belongs_to :campaign
+  has_many :active_players
+  has_many :players, through: :active_players
+  has_many :enemies
 
-  validates :skill_type, presence: true
-  validates :success, presence: true
+  accepts_nested_attributes_for :enemies, allow_destroy: true
+  # validates :skill_type, presence: true
+  # validates :success, presence: true
 end

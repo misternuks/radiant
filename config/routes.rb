@@ -2,12 +2,13 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
+  post '/gpt_test', to: "pages#gpt"
   # Defines the root path route ("/")
   # root "articles#index"
-  resources :campaigns
-  resources :players, only: [:destroy]
   resources :campaigns do
-    resources :encounters, only: %i[show new create]
+    resources :active_players, only: %i[index new create]
+    resources :encounters, only: %i[new create]
   end
+  resources :encounters, only: %i[index show]
+  resources :players, only: %i[destroy]
 end
