@@ -1,2 +1,16 @@
-Yo what up from encounters / show
-<%= @encounter.enemies.count %>
+<div class="container">
+  <div class="player-container d-flex">
+    <% @encounter.players.each do |player| %>
+      <%= link_to root_path, class: 'text-decoration-none link-dark' do %>
+        <div class="card p-3 m-3"><%= player.player_name %>
+        </div>
+      <% end %>
+    <% end %></div>
+  <div class="enemy-container d-flex">
+    <% @encounter.enemies.each do |enemy| %>
+      <%= link_to root_path(:enemy => enemy.name), class: 'text-decoration-none link-dark' do %>
+        <div class="card p-3 m-3 "><%= enemy.name %>
+        </div>
+      <% end %>
+    <% end %></div>
+</div>
