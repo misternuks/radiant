@@ -15,15 +15,14 @@
           <li><span style="font-weight:bold">Mood:</span> <%= @campaign.world_mood.capitalize  %></li>
           <li><span style="font-weight:bold">Weather:</span> <%= @campaign.world_weather.capitalize  %></li>
         </ul>
-      <% @campaign.players.each do |player| %>
-        <div>
-          <%= player.character_name %>
-        </div>
-      <% end %>
+        <% @campaign.players.each do |player| %>
+          <div>
+            <%= player.character_name %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
-
   <div class="nav-world-container">
     <div class="world-button">
       Generate World
