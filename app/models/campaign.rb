@@ -2,6 +2,7 @@ class Campaign < ApplicationRecord
   belongs_to :user
 
   has_many :players
+  has_many :ai_texts
 
   validates :world_name, presence: true
   validates :world_biome, presence: true
