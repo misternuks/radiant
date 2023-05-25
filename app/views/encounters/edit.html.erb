@@ -1,0 +1,8 @@
+Yo what up from encounters/id/edit
+<div class="container">
+  <% @encounter.enemies.all.each do |enemy| %>
+    <div class="card">
+      <%= enemy.name %>
+    <% end %>
+  </div>
+</div>
