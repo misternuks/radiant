@@ -1,11 +1,11 @@
 <div class="world-background-image-div">
   <%= @user.email %>
+  <h2 class="world-header-h2">CREATE YOUR WORLD</h2>
   <div class="world-card-container">
     <div class="world-card">
       <!-- Upper div with circular icon and text -->
       <div class="world-card-header">
-        <img alt="portrait" class="world-card-icon" src="/assets/rogue-portrait-d89f16e3cae0f777a6d82fd0373a701d75f1b61f7a833f9bc88981690d206432.jpg">
-        <h3 class="header-text">AI CREATED WORLD</h3>
+        <img alt="portrait" class="world-card-icon" src="/assets/blue.jpg">
       </div>
       <!-- Middle div with image -->
       <div class="world-card-image img">
@@ -14,16 +14,15 @@
       <!-- Lower div with four elements containing small text -->
       <div class="world-card-footer">
         <p class="world-footer-text">Campaign Name: Dances With Goblins</p>
-        <p class="world-footer-text">Biome: Mountains</p>
-        <p class="world-footer-text">Weather: Snowy</p>
+        <p class="world-footer-text">Biome: chemical city</p>
+        <p class="world-footer-text">Weather: acid rain</p>
         <p class="world-footer-text">Mood: penitent</p>
       </div>
     </div>
     <div class="world-card">
       <!-- Upper div with circular icon and text -->
       <div class="world-card-header">
-        <img alt="portrait" class="world-card-icon" src="/assets/rogue-portrait-d89f16e3cae0f777a6d82fd0373a701d75f1b61f7a833f9bc88981690d206432.jpg">
-        <h3 class="header-text">AI CREATED WORLD</h3>
+        <img alt="portrait" class="world-card-icon" src="/assets/purple-gem.jpg">
       </div>
       <!-- Middle div with image -->
       <div class="world-card-image img">
@@ -32,16 +31,15 @@
       <!-- Lower div with four elements containing small text -->
       <div class="world-card-footer">
         <p class="world-footer-text">Campaign Name: The Matrix Easter Day</p>
-        <p class="world-footer-text">Biome: Jungle</p>
-        <p class="world-footer-text">Weather: sunny with a chance of meatballs</p>
+        <p class="world-footer-text">Biome: tundra</p>
+        <p class="world-footer-text">Weather: snowy with a chance of meatballs</p>
         <p class="world-footer-text">Mood: obtuse</p>
       </div>
     </div>
     <div class="world-card">
       <!-- Upper div with circular icon and text -->
       <div class="world-card-header">
-        <img alt="portrait" class="world-card-icon" src="/assets/rogue-portrait-d89f16e3cae0f777a6d82fd0373a701d75f1b61f7a833f9bc88981690d206432.jpg">
-        <h3 class="header-text">AI CREATED WORLD</h3>
+        <img alt="portrait" class="world-card-icon" src="/assets/gold-gem.jpg">
       </div>
       <!-- Middle div with image -->
       <div class="world-card-image img">
@@ -50,8 +48,8 @@
       <!-- Lower div with four elements containing small text -->
       <div class="world-card-footer">
         <p class="world-footer-text">Campaign Name: Rat Man, Far From Home</p>
-        <p class="world-footer-text">Biome: Sewer</p>
-        <p class="world-footer-text">Weather: Dark & Gloomy</p>
+        <p class="world-footer-text">Biome: forest</p>
+        <p class="world-footer-text">Weather: bright & zesty</p>
         <p class="world-footer-text">Mood: pensive</p>
       </div>
     </div>
@@ -70,8 +68,8 @@
       <div data-nested-form-target="target"></div>
       <button type="button" data-action="nested-form#add">Add character</button>
       <div class="d-grid gap-2 col-3 pb-3 mx-auto">
-        <%= f.button :submit, "Create world", class: "btn btn-primary"%>
-        <input class="btn btn-success" type="reset" value="Reset form">
+        <%= f.button :submit, "Create world", class: "world-button"%>
+        <input class="world-button border-0" type="reset" value="Reset form">
       </div>
     <% end %>
   </div>
