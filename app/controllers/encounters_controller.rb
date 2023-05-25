@@ -5,6 +5,7 @@ class EncountersController < ApplicationController
 
   def show
     @encounter = Encounter.find(params[:id])
+    @campaign = Campaign.find(@encounter.players.first.campaign_id)
     authorize @encounter
   end
 
