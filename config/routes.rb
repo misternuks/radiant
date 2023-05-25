@@ -9,6 +9,6 @@ Rails.application.routes.draw do
     resources :active_players, only: %i[index new create]
     resources :encounters, only: %i[new create edit]
   end
-  resources :encounters, only: %i[index show]
+  resources :encounters, only: %i[index show update]
   resources :players, only: %i[destroy]
 end
