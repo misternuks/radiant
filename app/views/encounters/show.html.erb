@@ -1,14 +1,20 @@
+<%= @campaign.world_name %>
 <div class="container">
   <div class="player-container d-flex">
     <% @encounter.players.each do |player| %>
-      <%= link_to root_path, class: 'text-decoration-none link-dark' do %>
-        <div class="card p-3 m-3"><%= player.player_name %>
+
+      <%= link_to edit_campaign_encounter_path(campaign_id: @campaign.id, character: player.character_name), class: 'text-decoration-none link-dark' do %>
+        <div class="card p-3 m-3"><%= player.character_name %>
+
         </div>
       <% end %>
     <% end %></div>
+  <div class="narrative-container">
+    <div class="card p-3 m-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis impedit hic minus facilis ut, dolorem quibusdam saepe facere ipsa quod quos alias architecto aperiam deleniti maxime, corrupti molestias quam fuga? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus, ratione vitae. Nihil repellendus explicabo praesentium voluptates labore accusamus optio suscipit recusandae nesciunt! Sapiente aliquid consequuntur, odio veritatis totam natus numquam? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error accusamus labore quibusdam officia quia, dolorum magni aut qui eum aliquam eaque quidem blanditiis, praesentium non, molestiae distinctio laboriosam sapiente cupiditate.</div>
+  </div>
   <div class="enemy-container d-flex">
     <% @encounter.enemies.each do |enemy| %>
-      <%= link_to root_path(:enemy => enemy.name), class: 'text-decoration-none link-dark' do %>
+      <%= link_to edit_campaign_encounter_path(campaign_id: @campaign.id, enemy: enemy.name), class: 'text-decoration-none link-dark' do %>
         <div class="card p-3 m-3 "><%= enemy.name %>
         </div>
       <% end %>

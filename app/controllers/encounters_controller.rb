@@ -5,6 +5,7 @@ class EncountersController < ApplicationController
 
   def show
     @encounter = Encounter.find(params[:id])
+    @campaign = Campaign.find(@encounter.players.first.campaign_id)
     authorize @encounter
   end
 
@@ -48,6 +49,6 @@ class EncountersController < ApplicationController
   private
 
   def encounter_params
-    params.require(:encounter).permit(enemies_attributes: [:name])
+    params.require(:encounter).permit(:skill_type, :success, :criticality, :target, enemies_attributes: [:name])
   end
 end
