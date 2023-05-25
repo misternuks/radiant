@@ -64,21 +64,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_25_054540) do
     t.index ["campaign_id"], name: "index_players_on_campaign_id"
   end
 
-  create_table "target_groups", force: :cascade do |t|
-    t.bigint "target_id", null: false
-    t.bigint "encounter_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["encounter_id"], name: "index_target_groups_on_encounter_id"
-    t.index ["target_id"], name: "index_target_groups_on_target_id"
-  end
-
-  create_table "targets", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -97,6 +82,4 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_25_054540) do
   add_foreign_key "campaigns", "users"
   add_foreign_key "enemies", "encounters"
   add_foreign_key "players", "campaigns"
-  add_foreign_key "target_groups", "encounters"
-  add_foreign_key "target_groups", "targets"
 end
