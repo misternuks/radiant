@@ -6,5 +6,9 @@
 %>
   </div>
 <% end %>
-<%= link_to 'Create a new campaign', new_campaign_path, class: 'btn btn-primary'  %>
-<%= link_to 'Back', root_path  %>
+<div class="world-index-buttons-container">
+  <div class="world-index-buttons">
+    <%= link_to 'Create a new campaign', new_campaign_path, class: 'world-button'  %>
+    <%= link_to 'Back', root_path, class: 'world-button'   %>
+  </div>
+</div>

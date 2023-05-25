@@ -42,6 +42,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_24_072425) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "summary"
+    t.bigint "player_id", null: false
+    t.index ["player_id"], name: "index_encounters_on_player_id"
   end
 
   create_table "enemies", force: :cascade do |t|
@@ -94,6 +96,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_24_072425) do
   add_foreign_key "active_players", "encounters"
   add_foreign_key "active_players", "players"
   add_foreign_key "campaigns", "users"
+  add_foreign_key "encounters", "players"
   add_foreign_key "enemies", "encounters"
   add_foreign_key "players", "campaigns"
   add_foreign_key "target_groups", "encounters"
