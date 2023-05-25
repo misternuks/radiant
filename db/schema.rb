@@ -95,6 +95,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_25_070348) do
   add_foreign_key "active_players", "players"
   add_foreign_key "ai_texts", "campaigns"
   add_foreign_key "campaigns", "users"
+  add_foreign_key "encounters", "players"
   add_foreign_key "enemies", "encounters"
   add_foreign_key "players", "campaigns"
 end
