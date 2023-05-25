@@ -28,9 +28,18 @@ class EncountersController < ApplicationController
   end
 
   def edit
+    @encounter = Encounter.find(params[:id])
+    authorize @encounter
   end
 
   def update
+    @encounter = Encounter.find(params[:id])
+    authorize @encounter
+    if @encounter.update(encounter_params)
+      redirect_to encounter_path(@encounter)
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy
@@ -39,6 +48,6 @@ class EncountersController < ApplicationController
   private
 
   def encounter_params
-    params.require(:encounter).permit( enemies_attributes: [:name])
+    params.require(:encounter).permit(enemies_attributes: [:name])
   end
 end
