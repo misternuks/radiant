@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   resources :campaigns do
-    resources :players, only: %i[index new create destroy] do
-      resources :encounters, only: %i[show new create]
-    end
+    resources :active_players, only: %i[index new create]
+    resources :encounters, only: %i[new create]
   end
+  resources :encounters, only: %i[index show]
+  resources :players, only: %i[destroy]
 end
