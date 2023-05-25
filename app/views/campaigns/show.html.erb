@@ -24,8 +24,10 @@
     </div>
   </div>
   <div class="nav-world-container">
-    <div class="world-button">
-      Generate World
+    <%= link_to new_campaign_encounter_path(@campaign), class: 'text-decoration-none link-dark' do %>
+      <div class="world-button">
+        Generate World
+      </div>
     </div>
-  </div>
+  <% end %>
 </div>
