@@ -29,7 +29,6 @@ class CampaignsController < ApplicationController
     end
   end
 
-
   private
 
   def campaign_params
