@@ -1,8 +1,21 @@
-Yo what up from encounters/id/edit
-<div class="container">
-  <% @encounter.enemies.all.each do |enemy| %>
-    <div class="card">
-      <%= enemy.name %>
+<div class="container p-5 m-5">
+  <div class="card p-3 m-3">
+    <% if params[:enemy] %>
+      <h1>Combat round for <%= params[:enemy] %>:</h1>
+    <% else %>
+      <h1>Combat round for <%= params[:character] %>:</h1>
+    <% end %>
+  </div>
+  <div class="card p-3 m-3">
+    <%= simple_form_for [@campaign, @encounter] do |f| %>
+      <%= f.input :skill_type, collection: %w[acid bludgeoning cold fire force lightning necrotic piercing poison psychic radiant slashing thunder], label: 'Select your damage type:' %>
+      <%= f.input :target, collection: @encounter.enemies.map{ |enemy| enemy.name }, label: 'Select your target:' %>
+      <%= f.label :success, 'Was the attack successful?' %>
+      <%= f.input :success, label: false %>
+      <%= f.label :criticality, 'Was the attack a killing blow?' %>
+      <%= f.input :criticality, label: false %>
+      <%= f.button :submit, 'Make it so, number 1.', class: 'world-button' %>
     <% end %>
   </div>
 </div>
+<%# damage type, target, success, criticality %>

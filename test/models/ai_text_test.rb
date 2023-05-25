@@ -1,6 +1,6 @@
 require "test_helper"
 
-class TargetsControllerTest < ActionDispatch::IntegrationTest
+class AiTextTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

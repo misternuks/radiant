@@ -22,10 +22,16 @@
         <% end %>
       </div>
     </div>
-  </div>
-  <div class="nav-world-container">
-    <div class="world-button">
-      Generate World
+    <div class="nav-world-text-card">
+      <h3 class="header-text" style="margin-bottom: 10px;">World Description</h3>
+      <p class="header-text"><%= @service %></p>
     </div>
   </div>
+  <div class="nav-world-container">
+    <%= link_to new_campaign_encounter_path(@campaign), class: 'text-decoration-none link-dark' do %>
+      <div class="world-button">
+        Generate World
+      </div>
+    </div>
+  <% end %>
 </div>
