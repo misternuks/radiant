@@ -1,9 +1,10 @@
 class Player < ApplicationRecord
   belongs_to :campaign
 
-  has_many :encounters
 
-  # accepts_nested_attributes_for :players, allow_destroy: true
+  has_many :active_players
+  has_many :encounters, through: :active_players
+
 
   validates :player_name, presence: true
   validates :character_name, presence: true

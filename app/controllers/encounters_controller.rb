@@ -1,5 +1,6 @@
 class EncountersController < ApplicationController
   def index
+    @encounters = policy_scope(Encounter)
   end
 
   def show
@@ -9,27 +10,36 @@ class EncountersController < ApplicationController
 
   def new
     @encounter = Encounter.new
+    @encounter.enemies.build
+    @campaign = Campaign.find(params[:campaign_id])
     authorize @encounter
-    @encounter.targets.build
-    @campaign = Campaign.find_by(user: current_user)
   end
 
   def create
-    @campaign = Campaign.find(params[:id])
     @encounter = Encounter.new(encounter_params)
-    @encounter.campaign = @campaign
+    @campaign = Campaign.find(params[:campaign_id])
+    @encounter.players = @campaign.players
     authorize @encounter
     if @encounter.save
-      redirect_to campaign_encounter_path
+      redirect_to encounter_path(@encounter)
     else
       render :new, status: :unprocessable_entity
     end
   end
 
   def edit
+    @encounter = Encounter.find(params[:id])
+    authorize @encounter
   end
 
   def update
+    @encounter = Encounter.find(params[:id])
+    authorize @encounter
+    if @encounter.update(encounter_params)
+      redirect_to encounter_path(@encounter)
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy
@@ -38,6 +48,6 @@ class EncountersController < ApplicationController
   private
 
   def encounter_params
-    params.require(:encounter).permit(:skill_type, :success, :criticality, :summary, targets_attributes: [:name])
+    params.require(:encounter).permit(enemies_attributes: [:name])
   end
 end

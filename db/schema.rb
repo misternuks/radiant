@@ -10,9 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_24_025144) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_24_072425) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "active_players", force: :cascade do |t|
+    t.bigint "player_id", null: false
+    t.bigint "encounter_id", null: false
+    t.integer "initiative", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["encounter_id"], name: "index_active_players_on_encounter_id"
+    t.index ["player_id"], name: "index_active_players_on_player_id"
+  end
 
   create_table "campaigns", force: :cascade do |t|
     t.string "world_name"
@@ -32,8 +42,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_24_025144) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "summary"
-    t.bigint "player_id", null: false
-    t.index ["player_id"], name: "index_encounters_on_player_id"
+  end
+
+  create_table "enemies", force: :cascade do |t|
+    t.string "name"
+    t.bigint "encounter_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["encounter_id"], name: "index_enemies_on_encounter_id"
   end
 
   create_table "players", force: :cascade do |t|
@@ -75,8 +91,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_24_025144) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "active_players", "encounters"
+  add_foreign_key "active_players", "players"
   add_foreign_key "campaigns", "users"
-  add_foreign_key "encounters", "players"
+  add_foreign_key "enemies", "encounters"
   add_foreign_key "players", "campaigns"
   add_foreign_key "target_groups", "encounters"
   add_foreign_key "target_groups", "targets"
