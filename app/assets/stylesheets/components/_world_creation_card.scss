@@ -1,27 +1,62 @@
+
+
 .world-background-image-div {
   background: url('nebula.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  min-height: 100vh; /* vh stands for "viewport height", which makes the div at least as tall as the screen. */
+   /* vh stands for "viewport height", which makes the div at least as tall as the screen. */
 }
 
 
 .world-card-container {
   display: flex;
+
+  h3 {
+    margin: 0;
+  }
 }
 
 .world-card {
+
   display: flex;
   flex-direction: column;
-  height: auto;
-   flex: 0 0 33.33%;
-  color: black;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  flex: 0 0 33.33%;
+  color: #f1f3f3;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Drop shadow for the border */
   border-radius: 16px;
-  margin: 24px;
-  background-color: rgba(255, 255, 255, 0.8); /* white with 80% opacity */
+  margin: 16px;
+  background-color: #181c24;
+  border: 3px solid #ffd7004d;
+  background-clip: padding-box;
+
+
+  background-image: linear-gradient(
+		135deg,
+		rgba(#752e7c, 0.35),
+		rgba(#734a58, 0.1) 15%,
+		#1b2028 20%,
+		#1b2028 100%
+	);
+	&:after {
+		content: "";
+		display: block;
+		top: -3px;
+		left: -3px;
+		bottom: -3px;
+		right: -3px;
+		z-index: -1;
+		position: absolute;
+		border-radius: 16px;
+		background-image: linear-gradient(
+			135deg,
+			#752e7c,
+			#734a58 20%,
+			#1b2028 30%,
+			#2c333e 100%
+		);
+	}
 
   p {
     margin: 0;
@@ -49,7 +84,7 @@
 
 .world-card-image img {
   width: 100%;  /* Makes the image take up the full width of its container */
-  height: auto;  /* This keeps the image's original aspect ratio */
+  height: 390px;  /* This keeps the image's original aspect ratio */
   object-fit: cover;  /* This ensures that the image covers the whole area of its container, cropping if necessary */
   display: block;  /* This removes the default inline-block nature of images */
   margin: 0 auto;  /* This centers the image */
@@ -62,7 +97,7 @@
   height: 80px;     /* Adjust these values to your preferred size */
   border-radius: 50%; /* Makes the image round */
   object-fit: cover;  /* Ensures the image covers the whole area and remains centered */
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
 }
 
 .world-footer-text {
@@ -75,5 +110,6 @@
   margin-left: auto;
   margin-right: auto;
   display: block;
+  border-radius: 16px;
 
 }
