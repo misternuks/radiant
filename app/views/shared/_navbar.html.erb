@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-lewagon">
   <div class="container-fluid">
     <%= link_to root_path, class: "navbar-brand" do %>
-      <%=  image_tag "purple-gem-logo", class: "shadow rounded-circle"%>
+      <%=  image_tag "purple-gem-logo.jpg", class: "shadow rounded-circle"%>
     <% end %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -20,7 +20,7 @@
           </a>
         <% else %>
           <div class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "btn btn-flat" %>
+            <%= link_to "Login", new_user_session_path, class: "nav-item nav-link active text-white" %>
           </div>
         <% end %>
       </div>
