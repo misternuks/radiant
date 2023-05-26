@@ -6,16 +6,18 @@
       <p class="homepage-text-card", style="margin-top: 4vh">Radiant is an AI powered assistant for game masters that provides procedurally generated, contextualized narrative prompts that helps keeps your narratives relevant and rich. </p>
       <div class="homepage_button_div">
         <% if current_user %>
-          <%= link_to "Sign out", destroy_user_session_path, data: {turbo_method: :delete}, class: "homepage-purple-button", style: "width: 30%; height: 80%"%>
+          <p class="btn homepage-purple-button" style=" width:auto; height:80%">Welcome  <%= current_user.username %></p>
+          <%= link_to "Sign out", destroy_user_session_path, data: {turbo_method: :delete}, class: "btn homepage-purple-button", style: "width: 30%; height: 80%"%>
+
         <% else%>
-          <%= link_to 'Sign Up', new_user_registration_path,class: "homepage-purple-button", style: "width: 30%" %>
-          <%= link_to 'Log in', new_user_session_path, class: "homepage-purple-button", style: "width: 30%"%>
+          <%= link_to 'Sign Up', new_user_registration_path,class: "btn homepage-purple-button", style: "width: 30%" %>
+          <%= link_to 'Log in', new_user_session_path, class: "btn homepage-purple-button", style: "width: 30%"%>
         <% end %>
       </div>
     </div>
     <div class="homepage_right_div col-6">
       <h2 style="margin-bottom: 20px">Start your campaign</h2>
-      <%= link_to 'Campaigns', campaigns_path, class: "homepage-purple-button", style: "width: 30%"%>
+      <%= link_to 'Campaigns', campaigns_path, class: "btn homepage-purple-button", style: "width: 30%"%>
     </div>
   </div>
 </div>

@@ -10,14 +10,13 @@
         <div class="card-world-name">
           <%=campaign.world_name %>
         </div>
-        <div>
-          <%=image_tag"blue.jpg"%>
-        </div>
+        <%= link_to campaign_path(campaign), class: "text-decoration-none" do %>
+          <div>
+            <%=image_tag(["blue.jpg",'gold-gem.jpg','purple-gem.jpg'].sample)%>
+          </div>
+        <% end %>
         <div class="card-button-style">
-          <%= link_to 'Select', campaign_path(campaign), class: "text-decoration-none" %>
-        </div>
-        <div class="card-button-style">
-          <%=link_to "Delete", campaign_path(campaign), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-decoration-none"%>
+          <%=link_to "Delete", campaign_path(campaign), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-decoration-none text-white"%>
         </div>
       </div>
     <% end %>

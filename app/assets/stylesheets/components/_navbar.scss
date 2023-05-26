@@ -32,3 +32,13 @@
   width: 45px;
   height: 45px;
 }
+
+
+
+.active, .navbar-brand {
+  transition: all .2s ease-in-out;
+}
+
+.active:hover, .navbar-brand:hover {
+  transform: scale(1.1);
+}
