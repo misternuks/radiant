@@ -33,16 +33,16 @@ h1, h2, h3{
 .homepage_left_div{
   display: flex;
   flex-direction: column;
-  padding-right: 250px;
-  padding-left: 150px;
+  padding-left: 5%;
   text-align: left;
-  width: 860px;
+  width: 50%;
 }
 
 .homepage_right_div{
   display: flex;
   flex-direction: column;
   padding-left: 150px;
+  width: 50%;
   align-items: center;
 }
 
@@ -68,7 +68,6 @@ h1, h2, h3{
 .homepage-text-card {
   display: flex;
   height: fit-content;
-  max-width: 500px;
   align-items: center;
   padding: 2rem;
   /* width: 90%; */
