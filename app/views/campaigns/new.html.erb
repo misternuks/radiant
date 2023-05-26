@@ -1,3 +1,6 @@
+<% div_1_info = %w[forest desert jungle plains cavern tundra city].sample %>
+<% div_2_info = (%w[forest desert jungle plains cavern tundra city] -[div_1_info]).sample %>
+<% div_3_info = (%w[forest desert jungle plains cavern tundra city] - [div_1_info,div_2_info]).sample %>
 <div class="world-background-image-div">
   <%= @user.email %>
   <div class="world-header-container">
@@ -11,12 +14,12 @@
       </div>
       <!-- Middle div with image -->
       <div class="world-card-image img">
-        <img alt="Image" src="/assets/city.jpg">
+        <%= image_tag "#{div_1_info}.jpg"%>
       </div>
       <!-- Lower div with four elements containing small text -->
       <div class="world-card-footer">
         <p class="world-footer-text">World Name: Dances With Goblins</p>
-        <p class="world-footer-text">Biome: <%= %w[forest desert jungle plains cavern tundra city].sample.capitalize %></p>
+        <p class="world-footer-text">Biome: <%= div_1_info.capitalize %></p>
         <p class="world-footer-text">Weather: <%= %w[clear cloudy rainy snowy windy stormy].sample.capitalize %></p>
         <p class="world-footer-text">Mood: <%= %w[comedic romantic dark epic medieval high].sample.capitalize %></p>
       </div>
@@ -28,12 +31,12 @@
       </div>
       <!-- Middle div with image -->
       <div class="world-card-image img">
-        <img alt="Image" src="/assets/tundra.jpg">
+        <%= image_tag "#{div_2_info}.jpg"%>
       </div>
       <!-- Lower div with four elements containing small text -->
       <div class="world-card-footer">
-        <p class="world-footer-text">Campaign Name: The Matrix Easter Day</p>
-        <p class="world-footer-text">Biome: <%= %w[forest desert jungle plains cavern tundra city].sample.capitalize %></p>
+        <p class="world-footer-text">Campaign Name: Easter Day</p>
+        <p class="world-footer-text">Biome: <%= div_2_info.capitalize %></p>
         <p class="world-footer-text">Weather: <%= %w[clear cloudy rainy snowy windy stormy].sample.capitalize%></p>
         <p class="world-footer-text">Mood: <%= %w[comedic romantic dark epic medieval high].sample.capitalize %></p>
       </div>
@@ -45,12 +48,12 @@
       </div>
       <!-- Middle div with image -->
       <div class="world-card-image img">
-        <img alt="Image" src="/assets/forest-429f80b2531da201852234cedfb883333fb8c02363bde9d073f5b40119a8635f.jpg">
+        <%= image_tag "#{div_3_info}.jpg"%>
       </div>
       <!-- Lower div with four elements containing small text -->
       <div class="world-card-footer">
-        <p class="world-footer-text">Campaign Name: Rat Man, Far From Home</p>
-        <p class="world-footer-text">Biome: <%= %w[forest desert jungle plains cavern tundra city].sample.capitalize %></p>
+        <p class="world-footer-text">Campaign Name: Rat Man Returns</p>
+        <p class="world-footer-text">Biome: <%= div_3_info.capitalize %></p>
         <p class="world-footer-text">Weather: <%= %w[clear cloudy rainy snowy windy stormy].sample.capitalize%></p>
         <p class="world-footer-text">Mood: <%= %w[comedic romantic dark epic medieval high].sample.capitalize %></p>
       </div>
