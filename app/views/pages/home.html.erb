@@ -1,5 +1,3 @@
-
-
 <div class="homepage_background_container">
   <h1>Radiant</h1>
   <div class="homepage_middle_div row">
@@ -8,8 +6,8 @@
       <p class="homepage-text-card", style="margin-top: 4vh">Radiant is an AI powered assistant for game masters that provides procedurally generated, contextualized narrative prompts that helps keeps your narratives relevant and rich. </p>
       <div class="homepage_button_div">
         <% if current_user %>
-          <p class="homepage-purple-button" style=" width:40%; ">Welcome  <%= current_user.username %></p>
-          <%= link_to "Sign out", destroy_user_session_path, data: {turbo_method: :delete}, class: "homepage-purple-button", style: "width: 30%"%>
+          <p class="homepage-purple-button" style=" width:auto; height:80%">Welcome  <%= current_user.username %></p>
+          <%= link_to "Sign out", destroy_user_session_path, data: {turbo_method: :delete}, class: "homepage-purple-button", style: "width: 30%; height: 80%"%>
         <% else%>
           <%= link_to 'Sign Up', new_user_registration_path,class: "homepage-purple-button", style: "width: 30%" %>
           <%= link_to 'Log in', new_user_session_path, class: "homepage-purple-button", style: "width: 30%"%>
@@ -30,4 +28,3 @@
       <%# <%= text_field_tag(:super_url) %>
       <%# <%= submit_tag("name")%>
   <%# <% end %>
-

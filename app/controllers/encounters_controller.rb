@@ -6,6 +6,9 @@ class EncountersController < ApplicationController
   def show
     @encounter = Encounter.find(params[:id])
     @campaign = Campaign.find(@encounter.players.first.campaign_id)
+    if @encounter.summary.present?
+      @summary = OpenaiService.new("Create a DND combat narrative of #{@encounter.summary} attacking the #{@encounter.target} DND world in 75 words using these params [Damage Type: #{@encounter.skill_type},Hit:#{@encounter.success}, Killing Blow:#{@encounter.criticality}").call
+    end
     authorize @encounter
   end
 
@@ -30,6 +33,8 @@ class EncountersController < ApplicationController
 
   def edit
     @encounter = Encounter.find(params[:id])
+    @encounter.summary = params[:character]
+    @encounter.save
     authorize @encounter
   end
 
@@ -49,6 +54,6 @@ class EncountersController < ApplicationController
   private
 
   def encounter_params
-    params.require(:encounter).permit(:skill_type, :success, :criticality, :target, enemies_attributes: [:name])
+    params.require(:encounter).permit(:skill_type, :success, :criticality, :target, :summary, enemies_attributes: [:name])
   end
 end

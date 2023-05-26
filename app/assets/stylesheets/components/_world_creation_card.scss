@@ -16,6 +16,17 @@
    /* vh stands for "viewport height", which makes the div at least as tall as the screen. */
 }
 
+.world-background-image-muted {
+  background: url('nebula.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  opacity: 0.5;
+
+   /* vh stands for "viewport height", which makes the div at least as tall as the screen. */
+}
+
 
 .world-card-container {
   display: flex;
