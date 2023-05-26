@@ -1,12 +1,15 @@
-<div class="encounter-show-background">
+<div class="encounter-show-background" style="margin-top: 80px">
   <h1>Roll for initiative! Whose turn is it?</h1>
-  <div class="encounter-player-div">
-    <% @encounter.players.each do |player| %>
-      <%= link_to edit_campaign_encounter_path(campaign_id: @campaign.id, character: player.character_name), class: 'text-decoration-none link-dark' do %>
-      <%= image_tag "hero1.jpg"%>
-      <span><%= player.character_name %></span>
-    <% end %>
-    <% end %></div>
+  <div class="encounter-player-div" style="margin-top: 40px">
+      <% @encounter.players.each do |player| %>
+        <div class="encounter-player-icon">
+        <%= link_to edit_campaign_encounter_path(campaign_id: @campaign.id, character: player.character_name), class: 'text-decoration-none link-dark' do %>
+          <%= image_tag "hero1.jpg"%>
+          <span><%= player.character_name %></span>
+        <% end %>
+        </div>
+      <% end %>
+  </div>
   <div class="narrative-div">
     <div class="nav-world-card" style="padding: 15px">
       <% if @encounter.summary.present? %>
@@ -17,11 +20,14 @@
       <% end %>
     </div>
   </div>
-  <div class="encounter-player-div">
+  <div class="encounter-player-div" style="margin-top: 40px">
     <% @encounter.enemies.each do |enemy| %>
+      <div class="encounter-player-icon">
       <%= link_to edit_campaign_encounter_path(campaign_id: @campaign.id, enemy: enemy.name), class: 'text-decoration-none link-dark' do %>
-        <div class="card p-3 m-3 "><%= enemy.name %>
-        </div>
+        <%= image_tag "goblin.png"%>
+        <span><%= enemy.name %></span>
       <% end %>
-    <% end %></div>
+      </div>
+    <% end %>
+  </div>
 </div>
