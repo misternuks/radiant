@@ -34,7 +34,11 @@ class EncountersController < ApplicationController
 
   def edit
     @encounter = Encounter.find(params[:id])
-    @encounter.summary = params[:character]
+    if params[:character].present?
+      @encounter.summary = params[:character]
+    else
+      @encounter.summary = params[:enemy]
+    end
     @encounter.save
     authorize @encounter
   end
