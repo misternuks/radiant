@@ -9,13 +9,13 @@
   <div class="card p-3 m-3">
     <%= simple_form_for [@campaign, @encounter] do |f| %>
       <%= f.input :skill_type, collection: %w[acid bludgeoning cold fire force lightning necrotic piercing poison psychic radiant slashing thunder], label: 'Select your damage type:' %>
-      <%= f.input :target, collection: @encounter.players.map{ |player| player.player_name } + @encounter.enemies.map{ |enemy| enemy.name }, label: 'Select your target:' %>
+      <%= f.input :target, collection: @encounter.players.map{ |player| player.character_name } + @encounter.enemies.map{ |enemy| enemy.name }, label: 'Select your target:' %>
       <%= f.label :success, 'Was the attack successful?' %>
       <%= f.input :success, label: false %>
       <%= f.label :criticality, 'Was the attack a killing blow?' %>
       <%= f.input :criticality, label: false %>
       <% f.hidden_field :summary, :value => "hello" %>
-      <%= f.button :submit, 'Make it so, number 1.', class: 'world-button' %>
+      <%= f.button :submit, 'Generate combat results', class: 'world-button' %>
     <% end %>
   </div>
 </div>

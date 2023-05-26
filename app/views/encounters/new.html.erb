@@ -1,15 +1,24 @@
-<div class="container p-5 m-5">
-  <%= simple_form_for [@campaign, @encounter], html: { data: { controller: 'nested-form', nested_form_wrapper_selector_value: '.nested-form-wrapper' }} do |f| %>
-    <template data-nested-form-target="template">
-      <%= f.fields_for :enemies, Enemy.new, child_index: 'NEW_RECORD' do |enemy_fields| %>
-        <%= render "encounter_form", f: enemy_fields %>
+<body class='world-background-image-div'>
+  <div class="container p-5 m-5">
+    <h1 class="text-center">PREPARE FOR COMBAT</h1>
+    <div class="card-container p-3 m-3 bg-dark bg-success bg-opacity-25 d-flex flex-column" >
+      <div class="card p-3 bg-success bg-opacity-25">
+        <h2>Enemy combatants:</h2>
+        <%= simple_form_for [@campaign, @encounter], html: { data: { controller: 'nested-form', nested_form_wrapper_selector_value: '.nested-form-wrapper' }} do |f| %>
+          <template data-nested-form-target="template">
+            <%= f.fields_for :enemies, Enemy.new, child_index: 'NEW_RECORD' do |enemy_fields| %>
+              <%= render "encounter_form", f: enemy_fields %>
+            <% end %>
+          </template>
+          <div data-nested-form-target="target">
+            <button type="button", class="world-button-small" data-action="nested-form#add">+</button>
+          </div>
+        </div>
+        <div class="card mt-3 p-3 bg-success bg-opacity-25">
+          <%= f.button :submit, "Begin combat!", class: "world-button-small"%>
+          <input class="world-button-small" type="reset" value="Reset form">
+        </div>
       <% end %>
-    </template>
-    <div data-nested-form-target="target"></div>
-    <button type="button" data-action="nested-form#add">Add enemy</button>
-    <div class="d-grid gap-2 col-3 mx-auto">
-      <%= f.button :submit, "Begin combat!", class: "btn btn-primary"%>
-      <input class="btn btn-success" type="reset" value="Reset form">
     </div>
-  <% end %>
-</div>
+  </div>
+</body>
