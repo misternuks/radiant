@@ -12,18 +12,21 @@
 .encounter-player-div{
   display: flex;
   justify-content: space-evenly;
-  vertical-align: top;
-  display: inline-block;
-  text-align: center;
-  width: 120px;
+  flex-direction: row;
 }
+
 
 .encounter-player-div img{
   width: 120px;
   height: 120px;
+  border-radius: 50%;
+  border: solid;
+  background-color: white;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
 .encounter-player-div span{
   display: block;
+  color: white;
+
 }
