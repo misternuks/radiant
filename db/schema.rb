@@ -32,12 +32,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_25_070348) do
     t.index ["campaign_id"], name: "index_ai_texts_on_campaign_id"
   end
 
-  create_table "ai_world_texts", force: :cascade do |t|
-    t.text "text"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "campaigns", force: :cascade do |t|
     t.string "world_name"
     t.string "world_biome"
@@ -95,7 +89,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_25_070348) do
   add_foreign_key "active_players", "players"
   add_foreign_key "ai_texts", "campaigns"
   add_foreign_key "campaigns", "users"
-  add_foreign_key "encounters", "players"
   add_foreign_key "enemies", "encounters"
   add_foreign_key "players", "campaigns"
 end
