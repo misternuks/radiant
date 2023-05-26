@@ -121,7 +121,7 @@
   height: 80px;     /* Adjust these values to your preferred size */
   border-radius: 50%; /* Makes the image round */
   object-fit: cover;  /* Ensures the image covers the whole area and remains centered */
-
+  box-shadow: 0px 0px 20px 10px rgba(113, 78, 124, 0.7);
 }
 
 .world-footer-text {
