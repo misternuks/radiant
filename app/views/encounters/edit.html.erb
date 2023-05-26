@@ -1,10 +1,10 @@
 <body class='world-background-image-div'>
-  <div class="container">
-    <div class="text-center p-5 m-5">
+  <div class="container d-flex flex-column">
+    <div class="text-center">
       <% if params[:enemy] %>
-        <h1>Combat round for <%= params[:enemy] %>:</h1>
+        <h1>COMBAT ROUND FOR <%= params[:enemy].upcase %>:</h1>
       <% else %>
-        <h1>Combat round for <%= params[:character] %>:</h1>
+        <h1>COMBAT ROUND FOR <%= params[:character].upcase %>:</h1>
       <% end %>
     </div>
     <div class="card-container">
