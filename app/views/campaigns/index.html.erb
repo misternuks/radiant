@@ -1,10 +1,31 @@
-<h1>All campaigns</h1>
-<% @campaigns.each do |campaign| %>
-  <div class="card w-20 p-3 m-3"> <%=campaign.world_name %> <%= link_to 'Select', campaign_path(campaign)  %> <%=link_to "Delete",
-  campaign_path(campaign),
-  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-%>
+<div class="all-campaign-index-container">
+  <div class="all-campaigns-h1-container">
+    <div class="all-campaigns-h1">
+      <h1>ALL CAMPAIGNS</h1>
+    </div>
   </div>
-<% end %>
-<%= link_to 'Create a new campaign', new_campaign_path, class: 'btn btn-primary'  %>
-<%= link_to 'Back', root_path  %>
+  <div class="campaign-card-container">
+    <% @campaigns.each do |campaign| %>
+      <div class="campaign-card">
+        <div class="card-world-name">
+          <%=campaign.world_name %>
+        </div>
+        <div>
+          <%=image_tag"blue.jpg"%>
+        </div>
+        <div class="card-button-style">
+          <%= link_to 'Select', campaign_path(campaign), class: "text-decoration-none" %>
+        </div>
+        <div class="card-button-style">
+          <%=link_to "Delete", campaign_path(campaign), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-decoration-none"%>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="world-index-buttons-container">
+    <div class="world-index-buttons">
+      <%= link_to 'Create a new campaign', new_campaign_path, class: 'world-button'  %>
+      <%= link_to 'Back', root_path, class: 'world-button'   %>
+    </div>
+  </div>
+</div>

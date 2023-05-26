@@ -10,6 +10,7 @@ class EncountersController < ApplicationController
       @summary = OpenaiService.new("Create a DND combat narrative of #{@encounter.summary} attacking the #{@encounter.target} DND world in 75 words using these params [Damage Type: #{@encounter.skill_type},Hit:#{@encounter.success}, Killing Blow:#{@encounter.criticality}").call
     end
     authorize @encounter
+    raise
   end
 
   def new
