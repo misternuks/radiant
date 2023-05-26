@@ -12,7 +12,7 @@
         </div>
         <%= link_to campaign_path(campaign), class: "text-decoration-none" do %>
           <div>
-            <%=image_tag(["blue.jpg",'gold-gem.jpg','purple-gem.jpg'].sample)%>
+            <%=image_tag("#{campaign.world_biome}.jpg")%>
           </div>
         <% end %>
         <div class="card-button-style">
@@ -23,8 +23,8 @@
   </div>
   <div class="world-index-buttons-container">
     <div class="world-index-buttons">
-      <%= link_to 'Create a new campaign', new_campaign_path, class: 'world-button'  %>
-      <%= link_to 'Back', root_path, class: 'world-button'   %>
+      <%= link_to 'Create a new campaign', new_campaign_path, class: 'btn world-button'  %>
+      <%= link_to 'Back', root_path, class: 'btn world-button'   %>
     </div>
   </div>
 </div>
