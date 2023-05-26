@@ -9,8 +9,12 @@
     <% end %></div>
   <div class="narrative-div">
     <div class="nav-world-card" style="padding: 15px">
-      <h3 style="text-align: center">Combat summary</h3>
-      <%=@summary%>
+      <% if @encounter.summary.present? %>
+        <h3 style="text-align: center">Combat summary</h3>
+        <%# <%= @summary %>
+      <% else %>
+        <h2>Select combatant to generate combat narrative</h2>
+      <% end %>
     </div>
   </div>
   <div class="encounter-player-div">
