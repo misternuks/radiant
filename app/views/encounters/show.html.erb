@@ -1,19 +1,19 @@
 <div class="encounter-show-background">
   <h1>Roll for initiative! Whose turn is it?</h1>
-  <div class="player-container d-flex">
+  <div class="encounter-player-div">
     <% @encounter.players.each do |player| %>
       <%= link_to edit_campaign_encounter_path(campaign_id: @campaign.id, character: player.character_name), class: 'text-decoration-none link-dark' do %>
-        <div class="card p-3 m-3"><%= player.character_name %>
-        </div>
+        <%= image_tag "hero1.jpg"%>
+        <span><%= player.character_name %></span>
       <% end %>
     <% end %></div>
   <div class="narrative-div">
     <div class="nav-world-card" style="padding: 15px">
       <h3 style="text-align: center">Combat summary</h3>
-      <%=@summary%>
+      In Dungeons & Dragons (DND), the combat sequence is an exhilarating blend of strategy and storytelling. It begins with the Dungeon Master (DM) describing the scene, setting the stage for the players' actions. Each participant, including player characters (PCs) and non-player characters (NPCs), takes turns based on their initiative order. Actions such as attacking, casting spells, or utilizing special abilities are resolved through dice rolls and compared to target numbers. The outcome determines the success or failure of the action, creating a dynamic and suspenseful atmosphere as the battle unfolds. Through teamwork, cunning tactics, and a bit of luck, the heroes strive to emerge victorious in their quest.<%=@summary%>
     </div>
   </div>
-  <div class="enemy-container d-flex">
+  <div class="encounter-player-div">
     <% @encounter.enemies.each do |enemy| %>
       <%= link_to edit_campaign_encounter_path(campaign_id: @campaign.id, enemy: enemy.name), class: 'text-decoration-none link-dark' do %>
         <div class="card p-3 m-3 "><%= enemy.name %>
@@ -21,5 +21,3 @@
       <% end %>
     <% end %></div>
 </div>
-
-<%# In Dungeons & Dragons (DND), the combat sequence is an exhilarating blend of strategy and storytelling. It begins with the Dungeon Master (DM) describing the scene, setting the stage for the players' actions. Each participant, including player characters (PCs) and non-player characters (NPCs), takes turns based on their initiative order. Actions such as attacking, casting spells, or utilizing special abilities are resolved through dice rolls and compared to target numbers. The outcome determines the success or failure of the action, creating a dynamic and suspenseful atmosphere as the battle unfolds. Through teamwork, cunning tactics, and a bit of luck, the heroes strive to emerge victorious in their quest. %>
