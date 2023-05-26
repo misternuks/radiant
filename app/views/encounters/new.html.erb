@@ -2,7 +2,7 @@
   <div class="container p-5 m-5">
     <h1 class="text-center">PREPARE FOR COMBAT</h1>
     <div class="card-container p-3 m-3 bg-dark bg-success bg-opacity-25 d-flex flex-column" >
-      <div class="card p-3 bg-success bg-opacity-25">
+      <div class="card p-3 bg-success bg-opacity-25 d-flex">
         <h2>Enemy combatants:</h2>
         <%= simple_form_for [@campaign, @encounter], html: { data: { controller: 'nested-form', nested_form_wrapper_selector_value: '.nested-form-wrapper' }} do |f| %>
           <template data-nested-form-target="template">
@@ -11,12 +11,12 @@
             <% end %>
           </template>
           <div data-nested-form-target="target">
-            <button type="button", class="world-button-small" data-action="nested-form#add">+</button>
+            <button type="button", class="btn btn-success" data-action="nested-form#add">+</button>
           </div>
         </div>
-        <div class="card mt-3 p-3 bg-success bg-opacity-25">
-          <%= f.button :submit, "Begin combat!", class: "world-button-small"%>
-          <input class="world-button-small" type="reset" value="Reset form">
+        <div class="card mt-3 p-3 bg-success bg-opacity-25 d-flex gap-3">
+          <%= f.button :submit, "Begin combat!", class: "btn btn-success"%>
+          <input class="btn btn-success" type="reset" value="Reset form">
         </div>
       <% end %>
     </div>
