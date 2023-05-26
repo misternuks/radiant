@@ -7,7 +7,7 @@ class EncountersController < ApplicationController
     @encounter = Encounter.find(params[:id])
     @campaign = Campaign.find(@encounter.players.first.campaign_id)
     if @encounter.summary.present?
-      # @summary = OpenaiService.new("Create a DND combat narrative of #{@encounter.summary} attacking the #{@encounter.target} DND world in 75 words using these params [Damage Type: #{@encounter.skill_type},Hit:#{@encounter.success}, Killing Blow:#{@encounter.criticality}").call
+      @summary = OpenaiService.new("Create a DND combat narrative of #{@encounter.summary} attacking the #{@encounter.target} DND world in 75 words using these params [Damage Type: #{@encounter.skill_type},Hit:#{@encounter.success}, Killing Blow:#{@encounter.criticality}").call
     end
     authorize @encounter
   end
