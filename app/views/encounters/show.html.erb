@@ -13,13 +13,6 @@
       <%=@summary%>
     </div>
   </div>
-  <div class="enemy-container d-flex">
-    <% @encounter.enemies.each do |enemy| %>
-      <%= link_to edit_campaign_encounter_path(campaign_id: @campaign.id, enemy: enemy.name), class: 'text-decoration-none link-dark' do %>
-        <div class="card p-3 m-3 "><%= enemy.name %>
-        </div>
-      <% end %>
-    <% end %></div>
 </div>
 
 <%# In Dungeons & Dragons (DND), the combat sequence is an exhilarating blend of strategy and storytelling. It begins with the Dungeon Master (DM) describing the scene, setting the stage for the players' actions. Each participant, including player characters (PCs) and non-player characters (NPCs), takes turns based on their initiative order. Actions such as attacking, casting spells, or utilizing special abilities are resolved through dice rolls and compared to target numbers. The outcome determines the success or failure of the action, creating a dynamic and suspenseful atmosphere as the battle unfolds. Through teamwork, cunning tactics, and a bit of luck, the heroes strive to emerge victorious in their quest. %>
