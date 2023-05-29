@@ -8,28 +8,37 @@
 
 
 .world-background-image-div {
-  background: url('nebula.jpg') no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
+  background: url('nebula.jpg');
+  //  no-repeat center center fixed;
+  // -webkit-background-size: cover;
+  // -moz-background-size: cover;
+  // -o-background-size: cover;
+  // background-size: cover;
+
   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding-top: 100px;
+  text-align: center;
    /* vh stands for "viewport height", which makes the div at least as tall as the screen. */
 }
 
-.world-background-image-muted {
-  background: url('nebula.jpg') no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  opacity: 0.5;
+
+// .world-background-image-muted {
+  // background: url('nebula.jpg') no-repeat center center fixed;
+  // -webkit-background-size: cover;
+  // -moz-background-size: cover;
+  // -o-background-size: cover;
+  // background-size: cover;
+  // opacity: 0.5;
 
    /* vh stands for "viewport height", which makes the div at least as tall as the screen. */
-}
+// }
 
 
 .world-card-container {
   display: flex;
+  flex-wrap: wrap;
 
   h3 {
     margin: 0;

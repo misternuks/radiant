@@ -7,31 +7,36 @@
       </div>
       <div class="nav-world-card-image">
         <%= image_tag "#{@campaign.world_biome}.jpg"%>
-        <%# , class:"" %>
       </div>
       <div class="nav-world-card-footer">
-        <ul class="nav-world-list no-bullets">
+        <ul class="nav-world-footer-left no-bullets">
           <li><span style="font-weight:bold">Biome:</span> <%= @campaign.world_biome.capitalize  %></li>
           <li><span style="font-weight:bold">Mood:</span> <%= @campaign.world_mood.capitalize  %></li>
           <li><span style="font-weight:bold">Weather:</span> <%= @campaign.world_weather.capitalize  %></li>
         </ul>
-        <% @campaign.players.each do |player| %>
-          <div>
-            <%= player.character_name %>
+        <div class="nav-world-footer-right">
+          <p style="font-weight:bold; margin-bottom:2px; text-decoration: underline;">  Players  </p>
+          <div class="nav-world-player-list">
+            <% @campaign.players.each do |player| %>
+            <div>
+              <%= player.character_name %>
+            </div>
+            <% end %>
           </div>
-        <% end %>
+        </div>
       </div>
     </div>
-    <div class="nav-world-text-card">
-      <h3 class="header-text" style="margin-bottom: 10px;">World Description</h3>
-      <p class="header-text"><%= @service %></p>
+    <div class="nav-world-right-div">
+      <div class="nav-world-text-card">
+        <h3 class="header-text" style="margin-bottom: 10px;">World Description</h3>
+        <p class="header-text"><%= @service %></p>
+      </div>
+      <%= link_to new_campaign_encounter_path(@campaign), class: 'text-decoration-none link-dark' do %>
+        <div class="btn purple-button" style="margin-top: 5%">
+            Commence Combat
+        </div>
+      <% end %>
+      </div>
     </div>
   </div>
-  <div class="nav-world-container">
-    <%= link_to new_campaign_encounter_path(@campaign), class: 'text-decoration-none link-dark' do %>
-      <div class="world-button">
-        Commence Combat
-      </div>
-    </div>
-  <% end %>
 </body>

@@ -10,7 +10,8 @@
       <div class="world-card">
         <!-- Upper div with circular icon and text -->
         <div class="world-card-header">
-          <img alt="portrait" class="world-card-icon" src="/assets/blue.jpg">
+          <%# <img alt="portrait" class="world-card-icon" src="/assets/blue.jpg"> %>
+          <%= image_tag "blue.jpg", class:"world-card-icon"%>
         </div>
         <!-- Middle div with image -->
         <div class="world-card-image img">
@@ -27,7 +28,7 @@
       <div class="world-card">
         <!-- Upper div with circular icon and text -->
         <div class="world-card-header">
-          <img alt="portrait" class="world-card-icon" src="/assets/purple-gem.jpg">
+          <%= image_tag "purple-gem.jpg", class:"world-card-icon"%>
         </div>
         <!-- Middle div with image -->
         <div class="world-card-image img">
@@ -44,7 +45,7 @@
       <div class="world-card">
         <!-- Upper div with circular icon and text -->
         <div class="world-card-header">
-          <img alt="portrait" class="world-card-icon" src="/assets/gold-gem.jpg">
+          <%= image_tag "gold-gem.jpg", class:"world-card-icon"%>
         </div>
         <!-- Middle div with image -->
         <div class="world-card-image img">
@@ -73,12 +74,12 @@
           </template>
           <div data-nested-form-target="target"></div>
           <button type="button" data-action="nested-form#add">Add character</button>
-        </div>
-        <div class="d-grid gap-2 col-3 pb-3 mx-auto">
-          <%= f.button :submit, "Create world", class: "world-button"%>
-          <input class="world-button border-0" type="reset" value="Reset form">
-        </div>
-      <% end %>
+      </div>
+      <div class="d-grid gap-2 col-3 pt-3 pb-3 mx-auto">
+        <%= f.button :submit, "Create world", class: "btn purple-button", style: "width: auto"%>
+        <input class="btn purple-button" style="width:auto;" type="reset" value="Reset form">
+      </div>
+        <% end %>
     </div>
   </div>
 </body>
