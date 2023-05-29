@@ -1,12 +1,12 @@
 <body class="encounter-show-background">
   <h1>Roll for initiative! Whose turn is it?</h1>
   <div class="encounter-player-div" style="margin-top: 40px">
+    <% i = 1 %>
     <% @encounter.players.each do |player| %>
       <div class="encounter-player-icon">
         <%= link_to edit_campaign_encounter_path(campaign_id: @campaign.id, character: player.character_name), class: 'text-decoration-none link-dark' do %>
-          <% i = 1 %>
-          <%= i += 1 %>
           <%= image_tag "hero#{i}.jpg"%>
+          <% i+=1 %>
           <span><%= player.character_name %></span>
         <% end %>
       </div>
