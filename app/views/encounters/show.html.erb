@@ -1,10 +1,12 @@
-<div class="encounter-show-background">
+<body class="encounter-show-background">
   <h1>Roll for initiative! Whose turn is it?</h1>
   <div class="encounter-player-div" style="margin-top: 40px">
     <% @encounter.players.each do |player| %>
       <div class="encounter-player-icon">
         <%= link_to edit_campaign_encounter_path(campaign_id: @campaign.id, character: player.character_name), class: 'text-decoration-none link-dark' do %>
-          <%= image_tag "hero1.jpg"%>
+          <% i = 1 %>
+          <%= i += 1 %>
+          <%= image_tag "hero#{i}.jpg"%>
           <span><%= player.character_name %></span>
         <% end %>
       </div>
@@ -16,7 +18,7 @@
         <h3 style="text-align: center">Combat summary</h3>
         <%= @summary %>
       <% else %>
-        <h2>Select combatant to generate combat narrative</h2>
+        <h2 style ="margin-bottom: 0;">Select combatant to generate combat narrative</h2>
       <% end %>
     </div>
   </div>
@@ -30,5 +32,4 @@
       </div>
     <% end %>
   </div>
-</div>
-<%# In Dungeons & Dragons (DND), the combat sequence is an exhilarating blend of strategy and storytelling. It begins with the Dungeon Master (DM) describing the scene, setting the stage for the players' actions. Each participant, including player characters (PCs) and non-player characters (NPCs), takes turns based on their initiative order. Actions such as attacking, casting spells, or utilizing special abilities are resolved through dice rolls and compared to target numbers. The outcome determines the success or failure of the action, creating a dynamic and suspenseful atmosphere as the battle unfolds. Through teamwork, cunning tactics, and a bit of luck, the heroes strive to emerge victorious in their quest. %>
+</body>
