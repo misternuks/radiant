@@ -29,6 +29,13 @@ class CampaignsController < ApplicationController
     end
   end
 
+  # def destroy
+  #   @campaign = Campaign.find(params[:id])
+  #   @campaign.players.destroy
+  #   @campaign.ai_texts.destroy
+  #   @campaign.destroy
+  # end
+
   private
 
   def campaign_params

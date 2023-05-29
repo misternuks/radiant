@@ -1,30 +1,25 @@
-<div class="all-campaign-index-container">
-  <div class="all-campaigns-h1-container">
-    <div class="all-campaigns-h1">
-      <h1>ALL CAMPAIGNS</h1>
-    </div>
-  </div>
-  <div class="campaign-card-container">
-    <% @campaigns.each do |campaign| %>
-      <div class="campaign-card">
-        <div class="card-world-name">
-          <%=campaign.world_name %>
-        </div>
-        <%= link_to campaign_path(campaign), class: "text-decoration-none" do %>
-          <div>
-            <%=image_tag("#{campaign.world_biome}.jpg")%>
+<body class="all-campaign-index-container">
+  <div class="container d-flex flex-column align-items-center justify-content-center p-5 m-5">
+    <h1>ALL CAMPAIGNS</h1>
+    <div class="container d-flex align-items-center justify-content-center flex-wrap p-3 m-3">
+      <% @campaigns.each do |campaign| %>
+        <div class="campaign-card relative">
+          <div class="card-world-name">
+            <%=campaign.world_name %>
           </div>
-        <% end %>
-        <div class="card-button-style">
-          <%=link_to "Delete", campaign_path(campaign), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-decoration-none text-white"%>
+          <%= link_to campaign_path(campaign), class: "text-decoration-none" do %>
+            <div>
+              <%=image_tag("#{campaign.world_biome}.jpg")%>
+            </div>
+          <% end %>
+          <%=link_to campaign_path(campaign), class: "absolute", data: {turbo_method: :delete, turbo_confirm: "Do you want to delete this campaign?"} do %>
+            <i class="fa-solid fa-trash-can text-muted m-2"></i>
+          <% end %>
         </div>
-      </div>
-    <% end %>
-  </div>
-  <div class="world-index-buttons-container">
-    <div class="world-index-buttons">
-      <%= link_to 'Create a new campaign', new_campaign_path, class: 'btn world-button'  %>
-      <%= link_to 'Back', root_path, class: 'btn world-button'   %>
+      <% end %>
     </div>
-  </div>
-</div>
+    <div class="container d-flex flex-column align-items-center m-3 gap-3">
+      <%= link_to 'Create a new campaign', new_campaign_path, class: 'btn world-button w-50'  %>
+      <%= link_to 'Back', root_path, class: 'btn world-button w-50'   %>
+    </div>
+  </body>
