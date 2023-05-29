@@ -2,9 +2,9 @@
 <% div_2_info = (%w[forest desert jungle plains cavern tundra city] -[div_1_info]).sample %>
 <% div_3_info = (%w[forest desert jungle plains cavern tundra city] - [div_1_info,div_2_info]).sample %>
 <body class="world-background-image-div">
-  <div class="mt-5 p-5">
+  <div class="mt-5">
     <div class="world-header-container">
-      <h2 class="world-header-h2">CREATE YOUR WORLD</h2>
+      <h2 class="world-header-h2 mb-5">CREATE YOUR WORLD</h2>
     </div>
     <div class="world-card-container">
       <div class="world-card">
@@ -74,12 +74,12 @@
           </template>
           <div data-nested-form-target="target"></div>
           <button type="button" data-action="nested-form#add">Add character</button>
-      </div>
-      <div class="d-grid gap-2 col-3 pt-3 pb-3 mx-auto">
-        <%= f.button :submit, "Create world", class: "btn purple-button", style: "width: auto"%>
-        <input class="btn purple-button" style="width:auto;" type="reset" value="Reset form">
-      </div>
-        <% end %>
+        </div>
+        <div class="d-grid gap-2 col-3 pt-3 pb-3 mx-auto">
+          <%= f.button :submit, "Create world", class: "btn purple-button", style: "width: auto"%>
+          <input class="btn purple-button" style="width:auto;" type="reset" value="Reset form">
+        </div>
+      <% end %>
     </div>
   </div>
   <div class="card-container text-white p-3 mt-3 bg-dark bg-success bg-opacity-25 d-flex flex-column">
@@ -115,6 +115,4 @@
     </div>
   </div>
 </div>
-
 </body>
-
