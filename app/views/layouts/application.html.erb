@@ -3,6 +3,7 @@
   <head>
     <title>Radiant</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="turbo-visit-control" content="reload">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= favicon_link_tag asset_path('purple-gem-logo.jpg') %>
@@ -10,7 +11,7 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
     <script src="https://kit.fontawesome.com/c33c079609.js" crossorigin="anonymous"></script>
   </head>
-  <body>
+  <body data-no-turbolink="true">
     <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
     <%= yield %>
