@@ -9,18 +9,30 @@
     </div>
     <div class="card-container">
       <div class="card p-3 m-3 bg-success bg-opacity-25 d-flex text-white">
-        <%= simple_form_for [@campaign, @encounter] do |f| %>
-          <%= f.input :skill_type, collection: %w[acid bludgeoning cold fire force lightning necrotic piercing poison psychic radiant slashing thunder], label: 'Select your damage type:', clas: "bg-success"  %>
-          <%= f.input :target, collection: @encounter.players.map{ |player| player.character_name } + @encounter.enemies.map{ |enemy| enemy.name }, label: 'Select your target:' %>
-          <%= f.label :success, 'Was the attack successful?' %>
-          <%= f.input :success, label: false %>
-          <%= f.label :criticality, 'Was the attack a killing blow?' %>
-          <%= f.input :criticality, label: false %>
+        <%= simple_form_for [@campaign, @encounter], html: { class: 'encounter-form' } do |f| %>
+          <%= f.input :skill_type, collection: %w[acid bludgeoning cold fire force lightning necrotic piercing poison psychic radiant slashing thunder], label: 'Select your damage type:', include_blank: true, selected: ' ' %>
+          <%= f.input :target, input_html: { class: 'form-hidden', required: true }, label_html: { class: 'form-hidden', id: 'encounter_target_label' }, collection: @encounter.players.map{ |player| player.character_name } + @encounter.enemies.map{ |enemy| enemy.name }, label: 'Select your target:', class: 'form-hidden', include_blank: true, selected: ' ' %>
+          <%= f.label :success,  'Was the attack successful?', class:'form-hidden', id: 'encounter_success_label' %>
+          <%= f.input :success, input_html: { class: 'form-hidden', checked: false }, label: false %>
+          <%= f.label :criticality, 'Was the attack a killing blow?',class:'form-hidden', id: 'encounter_critical_label' %>
+          <%= f.input :criticality, input_html: { class: 'form-hidden', checked: false }, label: false %>
           <% f.hidden_field :summary, :value => "hello" %>
-          <%= f.button :submit, 'Generate combat results', class: 'btn purple-button' %>
+          <%= f.button :submit, 'Generate combat results', class: 'btn purple-button spinner-area', id: 'encounter-submit' %>
         <% end %>
+        <div class="hidden-spinner mt-5 me-4">
+          <div class="loader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+          <div class="title pt-4 ms-3">
+            <p><%= "Now Loading"%></p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </body>
 <%# damage type, target, success, criticality %>
+<%= javascript_include_tag 'encounter' %>
