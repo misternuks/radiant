@@ -12,7 +12,7 @@
 
   p {
     margin: 0;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
   }
 }
 
@@ -83,6 +83,7 @@
 }
 
 .nav-world-card {
+  font-size: 1.25rem;
   display: flex;
   flex-direction: column;
   height: auto;
@@ -103,6 +104,10 @@
 		#1b2028 20%,
 		#1b2028 100%
 	);
+
+  h3 {
+    font-size: 2rem;
+  }
 }
 
 .nav-world-card-header {
@@ -120,7 +125,7 @@
   align-items: center;
   justify-content: space-evenly;
   margin: 16px 0px;
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 
 
