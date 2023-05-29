@@ -2,15 +2,16 @@
 <% div_2_info = (%w[forest desert jungle plains cavern tundra city] -[div_1_info]).sample %>
 <% div_3_info = (%w[forest desert jungle plains cavern tundra city] - [div_1_info,div_2_info]).sample %>
 <body class="world-background-image-div">
-  <div class="mt-5 p-5">
+  <div class="mt-5">
     <div class="world-header-container">
-      <h2 class="world-header-h2">CREATE YOUR WORLD</h2>
+      <h2 class="world-header-h2 mb-5">CREATE YOUR WORLD</h2>
     </div>
     <div class="world-card-container">
       <div class="world-card">
         <!-- Upper div with circular icon and text -->
         <div class="world-card-header">
-          <img alt="portrait" class="world-card-icon" src="/assets/blue.jpg">
+          <%# <img alt="portrait" class="world-card-icon" src="/assets/blue.jpg"> %>
+          <%= image_tag "blue.jpg", class:"world-card-icon"%>
         </div>
         <!-- Middle div with image -->
         <div class="world-card-image img">
@@ -27,7 +28,7 @@
       <div class="world-card">
         <!-- Upper div with circular icon and text -->
         <div class="world-card-header">
-          <img alt="portrait" class="world-card-icon" src="/assets/purple-gem.jpg">
+          <%= image_tag "purple-gem.jpg", class:"world-card-icon"%>
         </div>
         <!-- Middle div with image -->
         <div class="world-card-image img">
@@ -44,7 +45,7 @@
       <div class="world-card">
         <!-- Upper div with circular icon and text -->
         <div class="world-card-header">
-          <img alt="portrait" class="world-card-icon" src="/assets/gold-gem.jpg">
+          <%= image_tag "gold-gem.jpg", class:"world-card-icon"%>
         </div>
         <!-- Middle div with image -->
         <div class="world-card-image img">
@@ -74,9 +75,10 @@
           <div data-nested-form-target="target"></div>
           <button type="button" data-action="nested-form#add">Add character</button>
         </div>
-        <div class="d-grid gap-2 col-3 pb-3 mx-auto mt-3 spinner-area">
-          <%= f.button :submit, "Create world", class: "world-button"%>
-          <input class="world-button border-0" type="reset" value="Reset form">
+
+        <div class="d-grid gap-2 col-3 pt-3 pb-3 mx-auto">
+          <%= f.button :submit, "Create world", class: "btn purple-button", style: "width: auto"%>
+          <input class="btn purple-button" style="width:auto;" type="reset" value="Reset form">
         </div>
       <% end %>
       <div class="hidden-spinner mt-5 me-4">

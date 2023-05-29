@@ -1,5 +1,5 @@
-<body class='world-background-image-div'>
-  <div class="container d-flex flex-column">
+<body class='d-flex align-items-center justify-content-center world-background-image-div'>
+  <div class="container d-flex flex-column align-content-center justify-content-center m-5">
     <div class="text-center">
       <% if params[:enemy] %>
         <h1>COMBAT ROUND FOR <%= params[:enemy].upcase %>:</h1>
@@ -17,7 +17,7 @@
           <%= f.label :criticality, 'Was the attack a killing blow?' %>
           <%= f.input :criticality, label: false %>
           <% f.hidden_field :summary, :value => "hello" %>
-          <%= f.button :submit, 'Generate combat results', class: 'btn btn-success' %>
+          <%= f.button :submit, 'Generate combat results', class: 'btn purple-button' %>
         <% end %>
       </div>
     </div>

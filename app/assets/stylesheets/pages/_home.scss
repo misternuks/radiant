@@ -16,34 +16,32 @@ h1, h2, h3{
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  text-align: center;
-  padding: 16px;
-  width: 100%;
   padding-top: 100px;
+  text-align: center;
 }
 
 .homepage_middle_div{
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
-  padding-top: 25vh;
+  padding-top: 5%;
 }
 
 
 .homepage_left_div{
   display: flex;
   flex-direction: column;
-  padding-left: 5%;
-  text-align: left;
+  text-align: center;
+  align-items: center;
   width: 50%;
+  padding: 5%;
 }
 
 .homepage_right_div{
   display: flex;
   flex-direction: column;
-  padding-left: 150px;
   width: 50%;
   align-items: center;
+  justify-content: center;
 }
 
 .homepage_button_div{
