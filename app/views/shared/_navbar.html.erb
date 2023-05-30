@@ -9,7 +9,7 @@
       <ul class="dropdown-menu dropdown-menu-end p-3" aria-labelledby="navbarDropdown">
         <% if user_signed_in? %>
           <% if params[:controller] == 'encounters' && ['edit','show'].include?(params[:action]) %>
-            <%= link_to 'Exit combat', new_campaign_encounter_path(params[:campaign_id] || @campaign), class: "nav-item nav-link text-white p-3"  %>
+            <%= link_to 'Exit combat', new_campaign_encounter_path(params[:campaign_id] || @campaign), class: "nav-item nav-link text-white p-1"  %>
           <% else %>
           <% end %>
           <li> <%= link_to 'My campaigns', campaigns_path, class: "nav-item nav-link text-white p-1"  %></li>
