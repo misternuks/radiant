@@ -8,7 +8,9 @@ application.register('nested-form', NestedForm)
 application.debug = false
 window.Stimulus   = application
 
+import Sortable from 'stimulus-sortable'
 
-
+// const application = Application.start()
+application.register('sortable', Sortable)
 
 export { application }
