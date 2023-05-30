@@ -8,6 +8,7 @@ class CampaignsController < ApplicationController
     @user = current_user
     authorize @campaign
     @service = OpenaiService.new("Create a description with a tone of #{@campaign.world_mood} DND world in 75 words using these params [World Name:#{@campaign.world_name}, Biome:#{@campaign.world_biome}, Weather:#{@campaign.world_weather}").call
+    @campaign.ai_text = @service
   end
 
   def new
