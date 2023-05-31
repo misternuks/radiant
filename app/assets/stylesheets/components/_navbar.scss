@@ -1,8 +1,10 @@
 .navbar-lewagon {
+  padding: 0;
   justify-content: space-between;
-  background-color: rgba(147, 38, 136, 0.5);
+  background-color: rgba(10, 10, 10, 0.5);
 
   backdrop-filter: blur(3px);
+  border-bottom: 3px solid $purple;
 
   opacity: 1;
   position: fixed;
@@ -24,30 +26,67 @@
   flex-grow: 0;
 }
 
+.navbar-nav {
+  height: 100%
+}
+
 .navbar-lewagon .navbar-brand img {
   width: 45px;
 }
 
+.navbar-lewagon .navbar-brand{
+  border-right: 3px solid $purple;
+  padding-left: 5px;
+  padding-right: 15px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
 .avatar {
   width: 45px;
   height: 45px;
+  margin-left: 10px;
+  margin-top: 5px;
+  margin-right: 17px;
+
+}
+
+.container-fluid {
+  align-items: normal !important;
 }
 
 
-
-.active, .navbar-brand {
+.active, .navbar-brand img{
   transition: all .2s ease-in-out;
 }
 
-.active:hover, .navbar-brand:hover {
-  transform: scale(1.1);
+.active:hover, .navbar-brand img:hover {
+  transform: scale(1.05);
 }
 
 .navbar-toggler-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,0.8)' stroke-width='3' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
 
+.navbar-toggler{
+  border-left: 3px solid $purple;
+  display: flex;
+  align-items: center;
+  padding-left: 25px;
+  margin-right: 0;
+}
+
 .dropdown-menu {
-  background-color: $purple;
   border-radius: 15px;
+}
+
+#campaigns-nav, #log-out-nav, #log-in-nav {
+  border-left: 3px solid $purple;
+  padding-left: 20px;
+  padding-right: 20px;
+  display: flex;
+  align-items: center;
+}
+
+#log-out-nav {
+  border-right: 3px solid $purple
 }
