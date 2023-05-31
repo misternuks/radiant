@@ -5,6 +5,7 @@
 const campaignForm = document.querySelector('#new_campaign')
 const loadingSpinner = document.querySelector('.hidden-spinner')
 const spinnerArea = document.querySelector('.spinner-area')
+const spinnerText = document.querySelector('#spinner-text')
 
 
 // for loading spinner on encounter/edit
@@ -46,8 +47,29 @@ campaignForm.addEventListener("submit", (event) => {
   loadingSpinner.classList.add('active-spinner');
   loadingSpinner.classList.remove('hidden-spinner');
   spinnerArea.remove();
+  setTimeout(() => {
+    changeLoading1()
+  }, 4000);
+
 });
 
+function changeLoading1() {
+  spinnerText.textContent = 'Conjuring weather'
+  setTimeout(() => {
+    changeLoading2()
+  }, 4000);
+}
+
+function changeLoading2() {
+  spinnerText.textContent = 'Setting mood'
+  setTimeout(() => {
+    changeLoading3()
+  }, 4000);
+}
+
+function changeLoading3() {
+  spinnerText.textContent = 'Travelling to world'
+}
 // encounterForm.addEventListener("click", (event) => {
 //   console.log('OKAY')
 // });

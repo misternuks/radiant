@@ -1,0 +1,25 @@
+.progress-square {
+  opacity: 0.2;
+  color: white;
+  font-size: 12px;
+}
+
+.progress-square-active {
+  background-color: $purple;
+  color:white;
+  font-size: 12px;
+}
+
+.progress-bar {
+  border: 3px solid $purple;
+}
+
+.progress-square-complete {
+  color: $purple;
+  font-size: 12px;
+}
+
+
+.border-card {
+  border: 3px solid $purple;
+}
