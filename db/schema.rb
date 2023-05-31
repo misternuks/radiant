@@ -32,12 +32,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_30_081123) do
     t.index ["campaign_id"], name: "index_ai_texts_on_campaign_id"
   end
 
-  create_table "ai_world_texts", force: :cascade do |t|
-    t.text "text"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "campaigns", force: :cascade do |t|
     t.string "world_name"
     t.string "world_biome"
