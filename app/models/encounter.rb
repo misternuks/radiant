@@ -11,4 +11,8 @@ class Encounter < ApplicationRecord
   def reject_empty(attributes)
     attributes['name'].blank?
   end
+
+  # def storeVariable(variable)
+  #   @combatant = variable
+  # end
 end
