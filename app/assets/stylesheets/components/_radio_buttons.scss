@@ -1,35 +1,51 @@
 $li: 13; /* [1] */
-    $icon-size: 150px; /* [2] */
-    $menu-size: 300px / 2; /* [3] */
-    $unit-size: 45px;  /* [4] */
+$icon-size: 250px; /* [2] */
+$menu-size: 500px / 2; /* [3] */
+$unit-size: 85px;  /* [4] */
 $menu-position: (($menu-size * 2) - $icon-size) / -2;
-       $offset: 150px; /* [5] */
-          $deg: 360deg / $li; /* [6] */
+$offset: 200px; /* [5] */
+$deg: 360deg / $li; /* [6] */
 
 /* Styles: */
 .icon {
   position: relative;
-	background: white;
 	cursor: pointer;
 	margin: auto;
-	color: deepskyblue;
+	color: white;
 	border-radius: 50%;
   height: $icon-size;
 	width: $icon-size;
 	line-height: $icon-size;
   text-align: center;
- 	font-size: 2.75em;
+ 	// font-size: 2.75em;
  	font-weight: bold;
  	transition: 0.24s 0.2s;
+  margin: 125px;
+  background-color: #181c24;
+  background-image: linear-gradient(
+		135deg,
+		rgba(117, 46, 124, 0.35) 15%,
+    rgba(115, 74, 88, 0.1) 25%,
+    #1b2028 50%,
+    rgba(115, 74, 88, 0.1) 75%,
+    rgba(117, 46, 124, 0.35) 85%
+
+
+	);
+
+  input{
+    position: absolute;
+    transform: scale(0);
+  }
+
   .collection_radio_buttons{
     position: absolute;
-    background: white;
-    font-size: 60%;
+    font-size: 30%;
     text-decoration: none;
     width: $unit-size;
     height: $unit-size;
     line-height: $unit-size;
-    color: dodgerblue;
+    color: rgba(30, 143, 255, 0);
     border-radius: 50%;
     transition: 0.6s;
     }
@@ -43,9 +59,6 @@ $menu-position: (($menu-size * 2) - $icon-size) / -2;
     }
 }
 
-.icon:hover {
-	background: rgba(white,0.75);
-}
 
 .menu {
   position: absolute;
@@ -62,9 +75,10 @@ $menu-position: (($menu-size * 2) - $icon-size) / -2;
 
 
 .icon:hover {
+
 	 .menu {
 		 transition: transform 0.4s 0.08s,
-				  				        z-index   0s  0.5s;
+		 z-index   0s  0.5s;
   	 transform: scale(1);
   	 z-index: 5;
 	 }
@@ -73,22 +87,31 @@ $menu-position: (($menu-size * 2) - $icon-size) / -2;
 	 }
 
 /* Where all the MAGIC happens: */
-	 @for $m from 1 through $li {
+
+  @for $m from 1 through ($li + 1) {
 	   span:nth-child(#{$m}) {
 		    transition-delay: $m * 0.02s;
-		    transform: rotate(30 + $deg * $m);
-		    .unit {
-			     transition-delay: $m * 0.04s;
-			     transform: rotate(-$deg * $m + 720 - 30);
+		    transform: rotate(0 + $deg * $m);
+		    .collection_radio_buttons{
+          background-image: url('damage#{$m - 1}.jpg');
+          background-size: cover;
+			    transition-delay: $m * 0.04s;
+			    transform: rotate(-$deg * ($m ) + 720 );
 		    }
-	   }
-  }
-} /* END .icon:hover */
+        // .input{
+        //   transition-delay: $m * 0.04s;
+			  //   transform: rotate(-$deg * $m + 720 - 30);
+		    // }
+      }
+	}
+  transition-delay: 3s;
+}
+ /* END .icon:hover */
 
 .unit {
  	position: absolute;
  	background: white;
- 	font-size: 60%;
+ 	font-size: 30%;
   text-decoration: none;
  	width: $unit-size;
  	height: $unit-size;

@@ -12,6 +12,8 @@ const formSuccessLabel = document.querySelector('#encounter_success_label')
 const formSuccess = document.querySelector('#encounter_success')
 const formCriticalLabel = document.querySelector('#encounter_critical_label')
 const formCritical = document.querySelector('#encounter_criticality')
+
+// for encounter form dmg types
 const formSkillTypeAcid = document.querySelector('#encounter_skill_type_acid')
 const formSkillTypeBludgeoning = document.querySelector('#encounter_skill_type_bludgeoning')
 const formSkillTypeCold = document.querySelector('#encounter_skill_type_cold')
