@@ -2,13 +2,13 @@
 <% div_2_info = (%w[forest desert jungle plains cavern tundra city] -[div_1_info]).sample %>
 <% div_3_info = (%w[forest desert jungle plains cavern tundra city] - [div_1_info,div_2_info]).sample %>
 <body class="bg-black">
-  <div class="container mt-5 pt-5">
+  <div class="container d-flex flex-column mt-5 pt-5 justify-content-center align-items-center">
     <div>
       <h1 class="text-center">CAMPAIGN CREATION FORM</h1>
       <h3 class="text-center p-3">Name your campaign, then decide your session biome, weather, and mood. These can be changed later.
       </h3>
     </div>
-    <div class="category-wrapper card px-5 py-3 bg-success bg-opacity-25 text-white">
+    <div class="category-wrapper nav-world-card mx-2 p-3 bg-success bg-opacity-25 text-white w-75">
       <%= simple_form_for [@campaign], html: { data: { controller: 'nested-form', nested_form_wrapper_selector_value: '.nested-form-wrapper' }} do |f| %>
         <%= f.input :world_name, id: "form-field"%>
         <%= f.input :world_biome,
@@ -38,7 +38,7 @@
           <% end %>
         </template>
         <div data-nested-form-target="target"></div>
-        <button class="btn btn-success" type="button" data-action="nested-form#add">Add character</button>
+        <button class="btn btn-success m-2" type="button" data-action="nested-form#add">Add character</button>
       </div>
       <div class="d-grid gap-2 col-3 pt-3 pb-3 mx-auto spinner-area">
         <%= f.button :submit, "Create world", class: "btn purple-button", style: "width: auto"%>
@@ -52,11 +52,11 @@
         <div></div>
         <div></div>
       </div>
-        <div class="title pt-4 ms-3">
-          <p id='spinner-text'>Generating biome</p>
-        </div>
+      <div class="title pt-4 ms-3">
+        <p id='spinner-text'>Generating biome</p>
       </div>
     </div>
   </div>
+</div>
 </body>
 <%= javascript_include_tag 'campaign' %>
