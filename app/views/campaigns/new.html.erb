@@ -1,95 +1,59 @@
 <% div_1_info = %w[forest desert jungle plains cavern tundra city].sample %>
 <% div_2_info = (%w[forest desert jungle plains cavern tundra city] -[div_1_info]).sample %>
 <% div_3_info = (%w[forest desert jungle plains cavern tundra city] - [div_1_info,div_2_info]).sample %>
-<body class="world-background-image-div">
-  <div class="mt-5">
-    <div class="world-header-container">
-      <h2 class="world-header-h2 mb-5">CREATE YOUR WORLD</h2>
+<body class="bg-black">
+  <div class="container mt-5 pt-5">
+    <div>
+      <h1 class="text-center">CAMPAIGN CREATION FORM</h1>
+      <h3 class="text-center p-3">Name your campaign, then decide your session biome, weather, and mood. These can be changed later.
+      </h3>
     </div>
-    <div class="world-card-container">
-      <div class="world-card">
-        <!-- Upper div with circular icon and text -->
-        <div class="world-card-header">
-          <%# <img alt="portrait" class="world-card-icon" src="/assets/blue.jpg"> %>
-          <%= image_tag "blue.jpg", class:"world-card-icon"%>
-        </div>
-        <!-- Middle div with image -->
-        <div class="world-card-image img">
-          <%= image_tag "#{div_1_info}.jpg"%>
-        </div>
-        <!-- Lower div with four elements containing small text -->
-        <div class="world-card-footer">
-          <p class="world-footer-text">World Name: Dances With Goblins</p>
-          <p class="world-footer-text">Biome: <%= div_1_info.capitalize %></p>
-          <p class="world-footer-text">Weather: <%= %w[clear cloudy rainy snowy windy stormy].sample.capitalize %></p>
-          <p class="world-footer-text">Mood: <%= %w[comedic romantic dark epic medieval high].sample.capitalize %></p>
-        </div>
+    <div class="category-wrapper card px-5 py-3 bg-success bg-opacity-25 text-white">
+      <%= simple_form_for [@campaign], html: { data: { controller: 'nested-form', nested_form_wrapper_selector_value: '.nested-form-wrapper' }} do |f| %>
+        <%= f.input :world_name, id: "form-field"%>
+        <%= f.input :world_biome,
+          as: :radio_buttons,
+          collection_wrapper_tag: 'div',
+          collection_wrapper_class: 'category-wrapper',
+          item_wrapper_class: 'category-item',
+          input_html: {class: 'category-selector'},
+          collection: Campaign::BIOMES %>
+        <%= f.input :world_weather,
+          as: :radio_buttons,
+          collection_wrapper_tag: 'div',
+          collection_wrapper_class: 'category-wrapper',
+          item_wrapper_class: 'category-item',
+          input_html: {class: 'category-selector'},
+          collection: Campaign::WEATHERS %>
+        <%= f.input :world_mood,
+          as: :radio_buttons,
+          collection_wrapper_tag: 'div',
+          collection_wrapper_class: 'category-wrapper',
+          item_wrapper_class: 'category-item',
+          input_html: {class: 'category-selector'},
+          collection: Campaign::MOODS %>
+        <template data-nested-form-target="template">
+          <%= f.fields_for :players, Player.new, child_index: 'NEW_RECORD' do |player_fields| %>
+            <%= render "player_form", f: player_fields %>
+          <% end %>
+        </template>
+        <div data-nested-form-target="target"></div>
+        <button class="btn btn-success" type="button" data-action="nested-form#add">Add character</button>
       </div>
-      <div class="world-card">
-        <!-- Upper div with circular icon and text -->
-        <div class="world-card-header">
-          <%= image_tag "purple-gem.jpg", class:"world-card-icon"%>
-        </div>
-        <!-- Middle div with image -->
-        <div class="world-card-image img">
-          <%= image_tag "#{div_2_info}.jpg"%>
-        </div>
-        <!-- Lower div with four elements containing small text -->
-        <div class="world-card-footer">
-          <p class="world-footer-text">Campaign Name: Easter Day</p>
-          <p class="world-footer-text">Biome: <%= div_2_info.capitalize %></p>
-          <p class="world-footer-text">Weather: <%= %w[clear cloudy rainy snowy windy stormy].sample.capitalize%></p>
-          <p class="world-footer-text">Mood: <%= %w[comedic romantic dark epic medieval high].sample.capitalize %></p>
-        </div>
+      <div class="d-grid gap-2 col-3 pt-3 pb-3 mx-auto spinner-area">
+        <%= f.button :submit, "Create world", class: "btn purple-button", style: "width: auto"%>
+        <input class="btn purple-button" style="width:auto;" type="reset" value="Reset form">
       </div>
-      <div class="world-card">
-        <!-- Upper div with circular icon and text -->
-        <div class="world-card-header">
-          <%= image_tag "gold-gem.jpg", class:"world-card-icon"%>
-        </div>
-        <!-- Middle div with image -->
-        <div class="world-card-image img">
-          <%= image_tag "#{div_3_info}.jpg"%>
-        </div>
-        <!-- Lower div with four elements containing small text -->
-        <div class="world-card-footer">
-          <p class="world-footer-text">Campaign Name: Rat Man Returns</p>
-          <p class="world-footer-text">Biome: <%= div_3_info.capitalize %></p>
-          <p class="world-footer-text">Weather: <%= %w[clear cloudy rainy snowy windy stormy].sample.capitalize%></p>
-          <p class="world-footer-text">Mood: <%= %w[comedic romantic dark epic medieval high].sample.capitalize %></p>
-        </div>
+    <% end %>
+    <div class="hidden-spinner mt-5 me-4">
+      <div class="loader">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
       </div>
-    </div>
-    <div class="card-container text-white p-3 mt-3 bg-dark bg-success bg-opacity-25 d-flex flex-column">
-      <div class="card p-3 bg-success bg-opacity-25">
-        <%= simple_form_for [@campaign], html: { data: { controller: 'nested-form', nested_form_wrapper_selector_value: '.nested-form-wrapper' }} do |f| %>
-          <%= f.input :world_name, class: "bg-success bg-opacity-10 text-white w-100 mx-3"  %>
-          <%= f.input :world_biome, :collection => %i[forest desert jungle plains cavern tundra city] %>
-          <%= f.input :world_weather, :collection => %i[clear cloudy rainy snowy windy stormy] %>
-          <%= f.input :world_mood, :collection => %i[comedic romantic dark epic medieval high] %>
-          <template data-nested-form-target="template">
-            <%= f.fields_for :players, Player.new, child_index: 'NEW_RECORD' do |player_fields| %>
-              <%= render "player_form", f: player_fields %>
-            <% end %>
-          </template>
-          <div data-nested-form-target="target"></div>
-          <button type="button" data-action="nested-form#add">Add character</button>
-        </div>
-        <div class="d-grid gap-2 col-3 pt-3 pb-3 mx-auto spinner-area">
-          <%= f.button :submit, "Create world", class: "btn purple-button", style: "width: auto"%>
-          <input class="btn purple-button" style="width:auto;" type="reset" value="Reset form">
-        </div>
-      <% end %>
-      <div class="hidden-spinner mt-5 me-4">
-        <div class="loader">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-        <div class="title pt-4 ms-3">
-          <p><%= "Now Loading"%></p>
-        </div>
+      <div class="title pt-4 ms-3">
+        <p><%= "Now Loading"%></p>
       </div>
     </div>
   </div>
