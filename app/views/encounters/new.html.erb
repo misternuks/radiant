@@ -13,10 +13,13 @@
           <div data-nested-form-target="target">
             <button type="button", class="btn btn-success mt-3 " data-action="nested-form#add">+</button>
           </div>
-          <%= f.button :submit, "Begin combat!", class: "btn purple-button w-25"%>
-          <input class="btn purple-button w-25" type="reset" value="Reset form">
+          <div class="encounter-new-buttons-div">
+            <%= f.button :submit, "Begin combat!", class: "btn purple-button"%>
+            <%= link_to 'Exit Combat', campaigns_path, class: "purple-button"%>
+          </div>
         </div>
       <% end %>
+      </div>
     </div>
   </div>
 </body>

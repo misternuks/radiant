@@ -39,3 +39,10 @@
 .encounter-container{
   width:auto;
 }
+
+.encounter-new-buttons-div{
+  display: flex;
+  flex-direction: row;
+  gap: 1%;
+  justify-content: center;
+}

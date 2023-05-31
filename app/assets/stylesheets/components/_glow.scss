@@ -1,0 +1,73 @@
+@property --rotate {
+  syntax: "<angle>";
+  initial-value: 132deg;
+  inherits: false;
+}
+
+:root {
+  --card-height: 50vh;
+  --card-width: 25vh;
+}
+
+.glow {
+  background: #000000;
+  width: var(--card-width);
+  height: var(--card-height);
+  clip-path: polygon(43% 1%, 82% 34%, 98% 74%, 78% 92%, 52% 98%, 20% 92%, 3% 76%, 13% 44%, 27% 23%);
+  padding: 3px;
+  position: relative;
+  // border-radius: 54% 46% 49% 51% / 67% 67% 33% 33%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  font-size: 1.5em;
+  color: rgba(88, 199, 250, 0);
+  cursor: pointer;
+  font-family: cursive;
+}
+
+.glow::before {
+  content: "";
+  width: 104%;
+  height: 102%;
+  clip-path: polygon(43% 1%, 82% 34%, 98% 74%, 78% 92%, 52% 98%, 20% 92%, 3% 76%, 13% 44%, 27% 23%);
+  // border-radius: 54% 46% 49% 51% / 67% 67% 33% 33% ;
+  background-image: linear-gradient(
+    var(--rotate)
+    , #5ddcff, #3c67e3 43%, #4e00c2);
+    position: absolute;
+    z-index: -1;
+    top: -1%;
+    left: -2%;
+    animation: spin 2.5s linear infinite;
+}
+
+.glow::after {
+  position: absolute;
+  content: "";
+  top: calc(var(--card-height) / 6);
+  left: 0;
+  right: 0;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  transform: scale(0.8);
+  filter: blur(calc(var(--card-height) / 6));
+  background-image: linear-gradient(
+    var(--rotate)
+    , #5ddcff, #3c67e3 43%, #4e00c2);
+    opacity: 1;
+  transition: opacity .5s;
+  animation: spin 2.5s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    --rotate: 0deg;
+  }
+  100% {
+    --rotate: 360deg;
+  }
+}
