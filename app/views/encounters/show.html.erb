@@ -1,29 +1,38 @@
-<body class="encounter-show-background d-flex flex-column align-items-center bg-opacity-25">
+<% content_for :meta_title, "#{@encounter.players.last.campaign.world_name
+} is on #{DEFAULT_META["meta_product_name"]}" %>
+<%#=Meta Information Above"%>
+<body class='world-background-image-div'>
   <div class="container d-flex flex-column">
     <div>
       <h2 class="text-center">
         Choose the combatant:
       </h2>
-      <div class="d-flex flex-column gap-2">
-        <% i = 1 %>
+      <ul data-controller="sortable" data-sortable-animation-value="150" class="container d-flex align-items-center justify-content-center flex-wrap gap-2">
+        <%# i = 1 %>
         <% @encounter.players.each do |player| %>
-          <div class="card p-3 bg-success bg-opacity-75 shadow">
+          <li class="card-product bg-success bg-opacity-75">
             <%= link_to edit_campaign_encounter_path(campaign_id: @campaign.id, character: player.character_name), class: 'text-decoration-none text-white' do %>
-              <%#= image_tag "hero#{i}.jpg"%>
-              <% i+=1 %>
-              <span><%= player.character_name %></span>
-            <% end %>
-          </div>
+              <span><%= image_tag "warrior-portrait.jpg", class: "img" %></span>
+              <div class="card-product-infos">
+                <%#= image_tag "hero#{i}.jpg"%>
+                <%# i+=1 %>
+                <span><%= player.character_name %></span>
+              <% end %>
+            </div>
+          </li>
         <% end %>
         <% @encounter.enemies.each do |enemy| %>
-          <div class="card p-3 bg-success bg-opacity-75 shadow">
-            <%= link_to edit_campaign_encounter_path(campaign_id: @campaign.id, enemy: enemy.name), class: 'text-decoration-none text-white' do %>
-              <%#= image_tag "goblin.png"%>
-              <span><%= enemy.name %></span>
-            <% end %>
-          </div>
+          <li class="card-product bg-success bg-opacity-75">
+            <%= image_tag "goblin.png", class: "img bg-black bg-opacity-75" %>
+            <div class="card-product-infos">
+              <%= link_to edit_campaign_encounter_path(campaign_id: @campaign.id, enemy: enemy.name), class: 'text-decoration-none text-white' do %>
+                <%#= image_tag "goblin.png"%>
+                <span><%= enemy.name %></span>
+              <% end %>
+            </div>
+          </li>
         <% end %>
-      </div>
+      </ul>
     </div>
     <div class="nav-world-card card p-3">
       <% if @encounter.summary.present? %>

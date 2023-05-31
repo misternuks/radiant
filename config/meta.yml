@@ -1,0 +1,5 @@
+meta_product_name: "Radiant"
+meta_title: "Radiant - AI Storytelling Assistant For Game Masters"
+meta_description: "Radiant is an AI powered assistant for game masters that provides procedurally generated, contextualized narrative prompts that helps keeps your narratives relevant and rich."
+meta_image: "cover.png" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"   # required for Twitter Cards
