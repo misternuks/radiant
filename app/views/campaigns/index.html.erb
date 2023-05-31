@@ -1,7 +1,19 @@
-<body class="d-flex justify-content-center all-campaign-index-container">
-  <div class="container d-flex flex-column align-items-center justify-content-center m-5">
-    <h1>ALL CAMPAIGNS</h1>
-    <div class="container d-flex align-items-center justify-content-center flex-wrap p-3 m-3">
+<body class="bg-black">
+  <div class="container mt-5 pt-5 d-flex flex-column">
+    <h1 class="text-center">CAMPAIGNS</h1>
+    <h3 class="text-center p-3">Radiant's AI assistant crafts narration from the game world you imagine and the characters your players design. To get started, create or select a campaign.</h3>
+    <div class="container d-flex align-items-center justify-content-center flex-wrap p-3">
+      <div class="campaign-card">
+        <div class="card-world-name">
+          Create a new campaign
+        </div>
+        <%= link_to new_campaign_path, class: "text-center" do %>
+          <div>
+            <%= image_tag("gold-gem.jpg") %>
+          </div>
+          <i class="fa-solid fa-circle-plus text-muted m-2"></i>
+        <% end %>
+      </div>
       <% @campaigns.each do |campaign| %>
         <div class="campaign-card relative">
           <div class="card-world-name">
@@ -18,8 +30,5 @@
         </div>
       <% end %>
     </div>
-    <div class="container d-flex flex-column align-items-center m-3 gap-3">
-      <%= link_to 'Create a new campaign', new_campaign_path, class: 'btn world-button w-50'  %>
-      <%= link_to 'Back', root_path, class: 'btn world-button w-50'   %>
-    </div>
   </body>
+  <%#= link_to 'Back to the homepage', root_path, class: 'btn world-button w-50'   %>
