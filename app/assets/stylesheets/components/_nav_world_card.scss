@@ -15,8 +15,9 @@
 
 .nav-world-container {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
+  gap: 5rem;
 }
 
 .nav-world-player-list{
@@ -37,10 +38,10 @@
   justify-content: center;
 }
 
-.nav-world_right_div{
+.nav-world-right-div{
   display: flex;
   flex-direction: column;
-  width: 50%;
+
   align-items: center;
   justify-content: center;
 }
