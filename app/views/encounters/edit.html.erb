@@ -13,7 +13,7 @@
 
         <%# <div class="nav-world-card" style="align-items: center"> %>
         <div style="display:flex; align items: center">
-          <div class="icon">DMG
+          <div class="icon">SELECT YOUR DMG TYPE
           <ul class="menu">
             <%= f.collection_radio_buttons :skill_type, [['acid', 'Acid'], ['bludgeoning', 'Bludgeoning'], ['cold', 'Cold'], ['fire', 'Fire'], ['force', 'Force'],['lightning', 'Lightning'], ['necrotic', 'Necrotic'],['piercing', 'Piercing'], ['poison', 'Poison'],['psychic', 'Psychic'],['radiant', 'Radiant'],['slashing', 'Slashing'],['thunder', 'Thunder']],:first, :last, selected:' ',
             include_blank: true %>
@@ -62,3 +62,4 @@
 </body>
 <%# damage type, target, success, criticality %>
 <%= javascript_include_tag 'encounter' %>
+<%= javascript_include_tag 'encounter-form' %>
