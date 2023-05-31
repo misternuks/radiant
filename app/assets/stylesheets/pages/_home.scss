@@ -7,14 +7,15 @@ h1, h2, h3{
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-
 .homepage_background_container{
-  background-image: url('homepage-background.jpg');
+  background-image: url('homepage.jpg');
   background-size: cover;
-  background-repeat: no-repeat;
   background-position: center;
-  // padding-top: 100px;
-  text-align: center;
+
+
+  // background-position: center;
+  background-repeat:no-repeat;
+  // background-size: cover;
 }
 
 .homepage_middle_div{
