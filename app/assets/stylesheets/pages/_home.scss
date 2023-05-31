@@ -17,6 +17,10 @@ h1, h2, h3{
   padding-top: 5%;
 }
 
+hr {
+  opacity: 1;
+  border-top: 3px solid $purple;
+}
 
 .homepage_left_div{
   display: flex;

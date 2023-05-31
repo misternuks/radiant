@@ -1,17 +1,34 @@
-
 <% content_for :meta_title, "#{@encounter.players.last.campaign.world_name
 } is on #{DEFAULT_META["meta_product_name"]}" %>
 <%#=Meta Information Above"%>
 <body class='world-background-image-div'>
   <div class="container d-flex flex-column mt-5 pt-5">
     <div>
-      <h2 class="text-center">
-        Choose the combatant:
-      </h2>
+      <% if @encounter.summary.present? %>
+        <h1 class="text-center">
+          SELECT NEXT COMBATANT
+        </h1>
+      <% else %>
+        <h1 class="text-center">
+          SELECT COMBATANT
+        </h1>
+      <% end %>
+      <h4 class='text-center text-muted pt-2 pb-3'>Step 2 of 3</h4>
+      <h4 class='text-center text-white pb-2'>After rolling for initiative, click the player or enemy who will attack.</h4>
+      <hr>
+      <div>
+        <% if @encounter.summary.present? %>
+          <h3 class="text-center mb-3">Narrative</h3>
+          <h5 class ='text-white p-2'><%= @summary %></h5>
+        <% else %>
+          <h4 class="text-center">After completing step 3, Radiant will display the generated narrative here.</h4>
+        <% end %>
+      </div>
+      <hr>
       <ul data-controller="sortable" data-sortable-animation-value="150" class="container d-flex align-items-center justify-content-center flex-wrap gap-2">
         <%# i = 1 %>
         <% @encounter.players.each do |player| %>
-          <li class="card-product bg-success bg-opacity-75">
+          <li class="card-product  bg-success bg-opacity-75">
             <%= link_to edit_campaign_encounter_path(campaign_id: @campaign.id, character: player.character_name), class: 'text-decoration-none text-white' do %>
               <span><%= image_tag "warrior-portrait.jpg", class: "img" %></span>
               <div class="card-product-infos">
@@ -34,14 +51,6 @@
           </li>
         <% end %>
       </ul>
-    </div>
-    <div class="nav-world-card card p-3">
-      <% if @encounter.summary.present? %>
-        <h2 class="text-center">Combat Summary</h3>
-        <%= @summary %>
-      <% else %>
-        <h2 class="text-center">Select combatant to generate combat narrative</h2>
-      <% end %>
     </div>
   </div>
 </body>
