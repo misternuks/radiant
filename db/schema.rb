@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_25_070348) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_30_081123) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -25,11 +25,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_25_070348) do
   end
 
   create_table "ai_texts", force: :cascade do |t|
-    t.text "text"
+    t.string "text"
     t.bigint "campaign_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["campaign_id"], name: "index_ai_texts_on_campaign_id"
+  end
+
+  create_table "ai_world_texts", force: :cascade do |t|
+    t.text "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "campaigns", force: :cascade do |t|
