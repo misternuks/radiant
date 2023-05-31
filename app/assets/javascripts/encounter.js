@@ -12,14 +12,86 @@ const formSuccessLabel = document.querySelector('#encounter_success_label')
 const formSuccess = document.querySelector('#encounter_success')
 const formCriticalLabel = document.querySelector('#encounter_critical_label')
 const formCritical = document.querySelector('#encounter_criticality')
-const formSkillType = document.querySelector('#encounter_skill_type')
+const formSkillTypeAcid = document.querySelector('#encounter_skill_type_acid')
+const formSkillTypeBludgeoning = document.querySelector('#encounter_skill_type_bludgeoning')
+const formSkillTypeCold = document.querySelector('#encounter_skill_type_cold')
+const formSkillTypeFire = document.querySelector('#encounter_skill_type_fire')
+const formSkillTypeForce = document.querySelector('#encounter_skill_type_force')
+const formSkillTypeLightning = document.querySelector('#encounter_skill_type_lightning')
+const formSkillTypeNecrotic = document.querySelector('#encounter_skill_type_necrotic')
+const formSkillTypePiercing = document.querySelector('#encounter_skill_type_piercing')
+const formSkillTypePoison = document.querySelector('#encounter_skill_type_poison')
+const formSkillTypePsychic = document.querySelector('#encounter_skill_type_psychic')
+const formSkillTypeRadiant = document.querySelector('#encounter_skill_type_radiant')
+const formSkillTypeSlashing = document.querySelector('#encounter_skill_type_slashing')
+const formSkillTypeThunder = document.querySelector('#encounter_skill_type_thunder')
 
 
 console.log(encounterForm)
 // submits for encounter forms
-formSkillType.addEventListener("change", (event) => {
+formSkillTypeAcid.addEventListener("input", (event) => {
     formTarget.classList.add('form-visible')
     formTargetLabel.classList.add('form-visible')
+});
+
+formSkillTypeBludgeoning.addEventListener("input", (event) => {
+  formTarget.classList.add('form-visible')
+  formTargetLabel.classList.add('form-visible')
+});
+
+formSkillTypeCold.addEventListener("input", (event) => {
+  formTarget.classList.add('form-visible')
+  formTargetLabel.classList.add('form-visible')
+});
+
+formSkillTypeFire.addEventListener("input", (event) => {
+  formTarget.classList.add('form-visible')
+  formTargetLabel.classList.add('form-visible')
+});
+
+formSkillTypeForce.addEventListener("input", (event) => {
+  formTarget.classList.add('form-visible')
+  formTargetLabel.classList.add('form-visible')
+});
+
+formSkillTypeLightning.addEventListener("input", (event) => {
+  formTarget.classList.add('form-visible')
+  formTargetLabel.classList.add('form-visible')
+});
+
+formSkillTypeNecrotic.addEventListener("input", (event) => {
+  formTarget.classList.add('form-visible')
+  formTargetLabel.classList.add('form-visible')
+});
+
+formSkillTypePiercing.addEventListener("input", (event) => {
+  formTarget.classList.add('form-visible')
+  formTargetLabel.classList.add('form-visible')
+});
+
+formSkillTypePoison.addEventListener("input", (event) => {
+  formTarget.classList.add('form-visible')
+  formTargetLabel.classList.add('form-visible')
+});
+
+formSkillTypePsychic.addEventListener("input", (event) => {
+  formTarget.classList.add('form-visible')
+  formTargetLabel.classList.add('form-visible')
+});
+
+formSkillTypeRadiant.addEventListener("input", (event) => {
+  formTarget.classList.add('form-visible')
+  formTargetLabel.classList.add('form-visible')
+});
+
+formSkillTypeSlashing.addEventListener("input", (event) => {
+  formTarget.classList.add('form-visible')
+  formTargetLabel.classList.add('form-visible')
+});
+
+formSkillTypeThunder.addEventListener("input", (event) => {
+  formTarget.classList.add('form-visible')
+  formTargetLabel.classList.add('form-visible')
 });
 
 formTarget.addEventListener("input", (event) => {

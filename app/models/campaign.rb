@@ -2,7 +2,7 @@ class Campaign < ApplicationRecord
   belongs_to :user
 
   has_many :players, dependent: :destroy
-  has_many :ai_texts, dependent: :destroy
+  has_one :ai_text, dependent: :destroy
 
   validates :world_name, presence: true
   validates :world_biome, presence: true
