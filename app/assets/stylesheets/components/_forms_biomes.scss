@@ -1,0 +1,94 @@
+#campaign_world_name {
+  background-color: black;
+}
+
+.category-wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.category-item {
+  flex: 0 0 30%;
+}
+
+.category-selector {
+  position: absolute;
+  transform: scale(0);
+}
+
+.category-selector + label {
+  display: block;
+  cursor: pointer;
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px;
+  margin: 5px;
+  border: none;
+  border-radius: 4px;
+  background-color: black;
+}
+
+.category-selector:checked + label {
+  color: white !important;
+}
+
+
+#campaign_world_biome_forest + label {
+  color: green;
+}
+
+#campaign_world_biome_forest:checked + label {
+  background-color: green;
+}
+
+#campaign_world_biome_desert + label {
+  color: #FFC65A;
+}
+
+#campaign_world_biome_desert:checked + label {
+  background-color: #ce9630;
+}
+
+#campaign_world_biome_jungle + label {
+  color: #67803c;
+}
+
+#campaign_world_biome_jungle:checked + label {
+  background-color: #67803c;
+}
+
+#campaign_world_biome_plains + label {
+  color: #dac865;
+}
+
+#campaign_world_biome_plains:checked + label {
+  background-color: #b49c55;
+}
+
+#campaign_world_biome_cavern + label {
+  color: #a67237;
+}
+
+#campaign_world_biome_cavern:checked + label {
+  background-color: #573c1d;
+}
+
+#campaign_world_biome_tundra + label {
+  color: #62DDF5;
+}
+
+#campaign_world_biome_tundra:checked + label {
+  background-color: #41b1c7;
+}
+
+#campaign_world_biome_city + label {
+  color: grey;
+}
+
+#campaign_world_biome_city:checked + label {
+  background-color: grey;
+}

@@ -11,4 +11,8 @@ class Campaign < ApplicationRecord
   validates :players, presence: true
 
   accepts_nested_attributes_for :players, allow_destroy: true
+
+  BIOMES = %i[forest desert jungle plains cavern tundra city]
+  WEATHERS = %i[clear cloudy rainy snowy windy stormy]
+  MOODS = %i[comedic romantic dark epic medieval high]
 end
