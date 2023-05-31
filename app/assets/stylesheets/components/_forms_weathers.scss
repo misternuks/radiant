@@ -1,0 +1,59 @@
+#campaign_world_weather_clear + label {
+  @include fa-icon-solid($fa-var-sun);
+  color: rgb(255, 221, 0);
+}
+
+#campaign_world_weather_clear:checked + label {
+  @include fa-icon-solid($fa-var-sun);
+  background-color: rgb(187, 169, 51);
+}
+
+#campaign_world_weather_cloudy + label {
+  @include fa-icon-solid($fa-var-cloud);
+  color: rgb(150, 150, 150);
+}
+
+#campaign_world_weather_cloudy:checked + label {
+  @include fa-icon-solid($fa-var-cloud);
+  background-color: rgb(64, 64, 64);
+}
+
+#campaign_world_weather_rainy + label {
+  @include fa-icon-solid($fa-var-cloud-rain);
+  color: skyblue;
+}
+
+#campaign_world_weather_rainy:checked + label {
+  @include fa-icon-solid($fa-var-cloud-rain);
+  background-color: rgb(66, 150, 183);
+}
+
+#campaign_world_weather_snowy + label {
+  @include fa-icon-solid($fa-var-snowflake);
+  color: rgb(200, 200, 200);
+}
+
+#campaign_world_weather_snowy:checked + label {
+  @include fa-icon-solid($fa-var-snowflake);
+  background-color: rgb(99, 99, 99);
+}
+
+#campaign_world_weather_windy + label {
+  @include fa-icon-solid($fa-var-wind);
+  color: rgb(163, 220, 113);
+}
+
+#campaign_world_weather_windy:checked + label {
+  @include fa-icon-solid($fa-var-wind);
+  background-color: rgb(96, 133, 64);
+}
+
+#campaign_world_weather_stormy + label {
+  @include fa-icon-solid($fa-var-cloud-bolt);
+  color: rgb(95, 95, 95);
+}
+
+#campaign_world_weather_stormy:checked + label {
+  @include fa-icon-solid($fa-var-cloud-bolt);
+  background-color: rgb(67, 67, 67);
+}
