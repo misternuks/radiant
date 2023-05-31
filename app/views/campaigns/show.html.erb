@@ -1,8 +1,7 @@
 <body class="nav-world-background">
   <div class="nav-world-container">
-    <div class="nav-world-card">
+    <div class="smaller-card">
       <div class="nav-world-card-header">
-        <%= image_tag 'rogue-portrait.jpg', class:"nav-world-icon"%>
         <h3 class="header-text"><%= @campaign.world_name %></h3>
       </div>
       <div class="nav-world-card-image">
@@ -18,9 +17,9 @@
           <p style="font-weight:bold; margin-bottom:2px; text-decoration: underline;">  Players  </p>
           <div class="nav-world-player-list">
             <% @campaign.players.each do |player| %>
-            <div>
-              <%= player.character_name %>
-            </div>
+              <div>
+                <%= player.character_name %>
+              </div>
             <% end %>
           </div>
         </div>
@@ -32,11 +31,11 @@
         <p class="header-text"><%= @service %></p>
       </div>
       <%= link_to new_campaign_encounter_path(@campaign), class: 'text-decoration-none link-dark' do %>
-        <div class="btn purple-button" style="margin-top: 5%">
-            Commence Combat
+        <div class="btn purple-button" style="margin-top: 15%">
+          Enter Campaign
         </div>
       <% end %>
-      </div>
     </div>
   </div>
+</div>
 </body>

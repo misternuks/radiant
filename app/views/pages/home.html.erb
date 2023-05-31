@@ -1,14 +1,19 @@
-<body class="homepage_background_container">
-  <div class="container mt-4 d-flex flex-column justify-content-between align-items-center flex-wrap">
-    <h1 class="mt-5">Radiant</h1>
-    <div class="homepage_middle_div row flex-wrap">
-      <div class="homepage_left_div">
-        <h2>The newest member of your party. An AI assistant that joins you on your journey.</h2>
-        <p class="homepage-text-card", style="margin-top: 4vh;">Radiant is an AI powered assistant for game masters that provides procedurally generated, contextualized narrative prompts that helps keeps your narratives relevant and rich. </p>
+  <body class="homepage_background_container">
+  <div class="container d-flex flex-column mt-5 pt-5 justify-content-center align-items-center flex-wrap ">
+    <div>
+      <h1 class="mb-5 mt-5 text-center">RADIANT</h1>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-6 d-flex flex-column justify-content-center mt-5">
+        <h2 class="text-center"> Meet the newest member of your party: an AI assistant that joins you on your journey.</h2>
+        <hr class="my-4">
+        <h2 class="text-center">Radiant provides procedurally generated, contextualized narrative that helps keep your story-telling relevant and rich.</h2>
+        <div class="homepage_right_div">
+          <%= link_to 'Begin', campaigns_path, class: "btn purple-button mt-3 mb-3", style: "width: auto"%>
+        </div>
       </div>
-      <div class="homepage_right_div">
-        <h2 style="margin-bottom: 20px">Start your campaign</h2>
-        <%= link_to 'Campaigns', campaigns_path, class: "btn purple-button", style: "width: auto"%>
+      <div class="col-md-6 d-flex flex-column align-items-center">
+        <%= image_tag "home-gem.png", class: "img-fluid bg-black bg-opacity-75", style: "max-width: 50%;" %>
       </div>
     </div>
   </div>

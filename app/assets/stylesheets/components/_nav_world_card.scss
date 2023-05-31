@@ -1,8 +1,5 @@
 .nav-world-background {
-  background-image: url('show_world_background.jpg');
-  background-size: cover;
-  background-position: center;
-  text-align: center;
+  background-color: black;
   padding-top: 100px;
 
   h3 {
@@ -18,8 +15,11 @@
 
 .nav-world-container {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
+  gap: 5rem;
+  flex-wrap: wrap;
+  height: 86vh;
 }
 
 .nav-world-player-list{
@@ -40,10 +40,10 @@
   justify-content: center;
 }
 
-.nav-world_right_div{
+.nav-world-right-div{
   display: flex;
   flex-direction: column;
-  width: 50%;
+
   align-items: center;
   justify-content: center;
 }
@@ -110,6 +110,22 @@
   }
 }
 
+.smaller-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 500px;
+  color: #f1f3f3;
+  font-size: 1rem;
+  transition: box-shadow 0.3s ease-in-out;
+  border-radius: 16px;
+  margin: 16px;
+  background-color: #181c24;
+  border: 3px solid #ffd7004d;
+  background-clip: padding-box;
+  background-image: linear-gradient(135deg, rgba(117, 46, 124, 0.35), rgba(115, 74, 88, 0.1) 15%, #1b2028 20%, #1b2028 100%);
+}
+
 .nav-world-card-header {
   display: flex;
   flex-direction: row;
@@ -126,6 +142,7 @@
   justify-content: space-evenly;
   margin: 16px 0px;
   font-size: 1rem;
+  gap: 5rem;
 }
 
 

@@ -8,10 +8,6 @@
       </a>
       <ul class="dropdown-menu dropdown-menu-end p-3" aria-labelledby="navbarDropdown">
         <% if user_signed_in? %>
-          <% if params[:controller] == 'encounters' && ['edit','show'].include?(params[:action]) %>
-            <%= link_to 'Exit combat', new_campaign_encounter_path(params[:campaign_id] || @campaign), class: "nav-item nav-link text-white p-1"  %>
-          <% else %>
-          <% end %>
           <li> <%= link_to 'My campaigns', campaigns_path, class: "nav-item nav-link text-white p-1"  %></li>
           <li><%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-item nav-link text-white p-1" %></li>
         <% else %>
@@ -22,19 +18,15 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <% if user_signed_in? %>
         <div class="navbar-nav">
-          <% if params[:controller] == 'encounters' && ['edit','show'].include?(params[:action]) %>
-            <%= link_to 'Exit combat', new_campaign_encounter_path(params[:campaign_id] || @campaign), class: "nav-item nav-link active text-white"  %>
-          <% else %>
-          <% end %>
-          <%= link_to 'My campaigns', campaigns_path, class: "nav-item nav-link active text-white"  %>
-          <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-item nav-link active text-white" %>
+          <%= link_to 'My campaigns', campaigns_path, class: "nav-item nav-link active text-white", id: 'campaigns-nav'  %>
+          <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-item nav-link active text-white", id: 'log-out-nav' %>
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <%= image_tag "https://cdn.donmai.us/original/91/aa/91aa489220fc72a5213fa6a2a3996877.jpg", class: "avatar", alt: "dropdown menu" %>
           </a>
-        <% else %>
-          <div class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-item nav-link active text-white" %>
-          </div>
+        </div>
+      <% else %>
+        <div class="navbar-nav">
+          <%= link_to "Login", new_user_session_path, class: "nav-item nav-link active text-white", id: 'log-in-nav' %>
         <% end %>
       </div>
     </div>
