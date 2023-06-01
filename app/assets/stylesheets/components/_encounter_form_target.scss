@@ -13,7 +13,7 @@
   }
 
   input:checked + label {
-    background-image: url("warrior-portrait.jpg");
+    background-image: url("player1.jpg");
     background-size: cover;
     font-weight: bold;
   }
@@ -28,7 +28,7 @@
   }
 
   input:checked + label {
-    background-image: url("warrior-portrait.jpg");
+    background-image: url("player2.jpg");
     background-size: cover;
     font-weight: bold;
   }

@@ -27,17 +27,19 @@
       </div>
 
       <ul data-controller="sortable" data-sortable-animation-value="150" class="container d-flex align-items-center justify-content-center flex-wrap gap-2">
+        <% i = 1 %>
         <% @encounter.players.each do |player| %>
           <li class="combantant-card">
             <div class="card-product">
               <%= link_to edit_campaign_encounter_path(campaign_id: @campaign.id, character: player.character_name), class: 'text-decoration-none text-white' do %>
-                <span><%= image_tag "warrior-portrait.jpg", class: "img", style: "border-radius: 16px 0  0 16px;" %></span>
+                <span><%= image_tag "player#{i}.jpg", class: "img", style: "border-radius: 16px 0  0 16px;" %></span>
                 <div class="card-product-infos">
                   <span><%= player.character_name %></span>
               <% end %>
                 </div>
             </div>
           </li>
+          <% i += 1 %>
         <% end %>
         <% @encounter.enemies.each do |enemy| %>
           <li class="combantant-card">
