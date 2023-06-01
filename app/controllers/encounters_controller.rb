@@ -37,7 +37,7 @@ class EncountersController < ApplicationController
     # formatted for radio collection
     @combatant = []
     @encounter.players.map.each do |player|
-      @combatant << player.player_name
+      @combatant << player.character_name
     end
     @encounter.enemies.map.each do |enemy|
       @combatant << enemy.name

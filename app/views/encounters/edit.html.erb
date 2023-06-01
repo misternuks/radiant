@@ -8,19 +8,17 @@
       <% end %>
     </div>
     <%# <div class="card-container"> %>
-      <%# <div class="nav-world-card" style="align-items: center; padding: 25px"> %>
-        <%= simple_form_for [@campaign, @encounter], html: { class: 'encounter-form' } do |f| %>
-
-        <%# <div class="nav-world-card" style="align-items: center"> %>
-        <div style="display:flex; align items: center">
-          <div class="icon">SELECT YOUR DMG TYPE
+    <%# <div class="nav-world-card" style="align-items: center; padding: 25px"> %>
+    <%= simple_form_for [@campaign, @encounter], html: { class: 'encounter-form' } do |f| %>
+      <%# <div class="nav-world-card" style="align-items: center"> %>
+      <div style="display:flex; align items: center">
+        <div class="icon">SELECT YOUR DMG TYPE
           <ul class="menu">
             <%= f.collection_radio_buttons :skill_type, [['acid', 'Acid'], ['bludgeoning', 'Bludgeoning'], ['cold', 'Cold'], ['fire', 'Fire'], ['force', 'Force'],['lightning', 'Lightning'], ['necrotic', 'Necrotic'],['piercing', 'Piercing'], ['poison', 'Poison'],['psychic', 'Psychic'],['radiant', 'Radiant'],['slashing', 'Slashing'],['thunder', 'Thunder']],:first, :last, selected:' ',
             include_blank: true %>
           </ul>
-          </div>
         </div>
-
+      </div>
       <div style="display:flex; flex-direction: column">
         <div class="nav-world-card" style="padding: 25px">
           <%= f.input :target,
@@ -31,20 +29,12 @@
               input_html: {class: 'target-selector'},
               collection: @combatant %>
         </div>
-
-        <div class="nav-world-card" style="padding: 25px">
-            <%= f.input :success, input_html: { class: "form-hidden toggle" }, id: 'encounter_success' %>
-
-            <%= f.input :criticality,input_html: { class: "form-hidden toggle" }, id: 'encounter_criticality' %>
-
-            <% f.hidden_field :summary, :value => "hello" %>
-            <%= f.button :submit, 'Generate combat results', class: 'btn purple-button spinner-area', id: 'encounter-submit' %>
+        <div class="nav-world-card spinner-area" style="padding: 25px">
+          <%= f.input :success, input_html: { class: "form-hidden toggle spinner-area" }, id: 'encounter_success' %>
+          <%= f.input :criticality,input_html: { class: "form-hidden toggle spinner-area" }, id: 'encounter_criticality' %>
+          <% f.hidden_field :summary, :value => "hello" %>
+          <%= f.button :submit, 'Generate combat results', class: 'btn purple-button spinner-area', id: 'encounter-submit' %>
         </div>
-      </div>
-
-
-
-        <% end %>
         <div class="hidden-spinner mt-5 me-4">
           <div class="loader">
             <div></div>
@@ -53,10 +43,12 @@
             <div></div>
           </div>
           <div class="title pt-4 ms-3">
-            <p><%= "Now Loading"%></p>
+            <p class ='text-white spinner-text'><%= "Sharpening swords"%></p>
           </div>
         </div>
-      <%# </div> %>
+      </div>
+    <% end %>
+    <%# </div> %>
     <%# </div> %>
   </div>
 </body>

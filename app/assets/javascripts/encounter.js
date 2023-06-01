@@ -2,6 +2,7 @@
 const encounterForm = document.querySelector('.encounter-form')
 const loadingSpinner = document.querySelector('.hidden-spinner')
 const spinnerArea = document.querySelector('.spinner-area')
+const spinnerText = document.querySelector('.spinner-text')
 
 
 
@@ -31,81 +32,81 @@ const formSkillTypeThunder = document.querySelector('#encounter_skill_type_thund
 
 console.log(encounterForm)
 // submits for encounter forms
-formSkillTypeAcid.addEventListener("input", (event) => {
-    formTarget.classList.add('form-visible')
-    formTargetLabel.classList.add('form-visible')
-});
+// formSkillTypeAcid.addEventListener("input", (event) => {
+//     formTarget.classList.add('form-visible')
+//     formTargetLabel.classList.add('form-visible')
+// });
 
-formSkillTypeBludgeoning.addEventListener("input", (event) => {
-  formTarget.classList.add('form-visible')
-  formTargetLabel.classList.add('form-visible')
-});
+// formSkillTypeBludgeoning.addEventListener("input", (event) => {
+//   formTarget.classList.add('form-visible')
+//   formTargetLabel.classList.add('form-visible')
+// });
 
-formSkillTypeCold.addEventListener("input", (event) => {
-  formTarget.classList.add('form-visible')
-  formTargetLabel.classList.add('form-visible')
-});
+// formSkillTypeCold.addEventListener("input", (event) => {
+//   formTarget.classList.add('form-visible')
+//   formTargetLabel.classList.add('form-visible')
+// });
 
-formSkillTypeFire.addEventListener("input", (event) => {
-  formTarget.classList.add('form-visible')
-  formTargetLabel.classList.add('form-visible')
-});
+// formSkillTypeFire.addEventListener("input", (event) => {
+//   formTarget.classList.add('form-visible')
+//   formTargetLabel.classList.add('form-visible')
+// });
 
-formSkillTypeForce.addEventListener("input", (event) => {
-  formTarget.classList.add('form-visible')
-  formTargetLabel.classList.add('form-visible')
-});
+// formSkillTypeForce.addEventListener("input", (event) => {
+//   formTarget.classList.add('form-visible')
+//   formTargetLabel.classList.add('form-visible')
+// });
 
-formSkillTypeLightning.addEventListener("input", (event) => {
-  formTarget.classList.add('form-visible')
-  formTargetLabel.classList.add('form-visible')
-});
+// formSkillTypeLightning.addEventListener("input", (event) => {
+//   formTarget.classList.add('form-visible')
+//   formTargetLabel.classList.add('form-visible')
+// });
 
-formSkillTypeNecrotic.addEventListener("input", (event) => {
-  formTarget.classList.add('form-visible')
-  formTargetLabel.classList.add('form-visible')
-});
+// formSkillTypeNecrotic.addEventListener("input", (event) => {
+//   formTarget.classList.add('form-visible')
+//   formTargetLabel.classList.add('form-visible')
+// });
 
-formSkillTypePiercing.addEventListener("input", (event) => {
-  formTarget.classList.add('form-visible')
-  formTargetLabel.classList.add('form-visible')
-});
+// formSkillTypePiercing.addEventListener("input", (event) => {
+//   formTarget.classList.add('form-visible')
+//   formTargetLabel.classList.add('form-visible')
+// });
 
-formSkillTypePoison.addEventListener("input", (event) => {
-  formTarget.classList.add('form-visible')
-  formTargetLabel.classList.add('form-visible')
-});
+// formSkillTypePoison.addEventListener("input", (event) => {
+//   formTarget.classList.add('form-visible')
+//   formTargetLabel.classList.add('form-visible')
+// });
 
-formSkillTypePsychic.addEventListener("input", (event) => {
-  formTarget.classList.add('form-visible')
-  formTargetLabel.classList.add('form-visible')
-});
+// formSkillTypePsychic.addEventListener("input", (event) => {
+//   formTarget.classList.add('form-visible')
+//   formTargetLabel.classList.add('form-visible')
+// });
 
-formSkillTypeRadiant.addEventListener("input", (event) => {
-  formTarget.classList.add('form-visible')
-  formTargetLabel.classList.add('form-visible')
-});
+// formSkillTypeRadiant.addEventListener("input", (event) => {
+//   formTarget.classList.add('form-visible')
+//   formTargetLabel.classList.add('form-visible')
+// });
 
-formSkillTypeSlashing.addEventListener("input", (event) => {
-  formTarget.classList.add('form-visible')
-  formTargetLabel.classList.add('form-visible')
-});
+// formSkillTypeSlashing.addEventListener("input", (event) => {
+//   formTarget.classList.add('form-visible')
+//   formTargetLabel.classList.add('form-visible')
+// });
 
-formSkillTypeThunder.addEventListener("input", (event) => {
-  formTarget.classList.add('form-visible')
-  formTargetLabel.classList.add('form-visible')
-});
+// formSkillTypeThunder.addEventListener("input", (event) => {
+//   formTarget.classList.add('form-visible')
+//   formTargetLabel.classList.add('form-visible')
+// });
 
-formTarget.addEventListener("input", (event) => {
-  formSuccessLabel.classList.add('form-visible')
-  formSuccess.classList.add('form-visible')
+// formTarget.addEventListener("input", (event) => {
+//   formSuccessLabel.classList.add('form-visible')
+//   formSuccess.classList.add('form-visible')
 
-});
+// });
 
-formSuccess.addEventListener("input", (event) => {
-  formCriticalLabel.classList.add('form-visible')
-  formCritical.classList.add('form-visible')
-})
+// formSuccess.addEventListener("input", (event) => {
+//   formCriticalLabel.classList.add('form-visible')
+//   formCritical.classList.add('form-visible')
+// })
 
 
 
@@ -113,4 +114,26 @@ encounterForm.addEventListener("submit", (event) => {
   loadingSpinner.classList.add('active-spinner');
   loadingSpinner.classList.remove('hidden-spinner');
   spinnerArea.remove();
+  setTimeout(() => {
+    changeLoading1()
+  }, 4000);
 });
+
+
+function changeLoading1() {
+  spinnerText.textContent = 'Calibrating catapults'
+  setTimeout(() => {
+    changeLoading2()
+  }, 4000);
+}
+
+function changeLoading2() {
+  spinnerText.textContent = 'Spinning battle-axes'
+  setTimeout(() => {
+    changeLoading3()
+  }, 4000);
+}
+
+function changeLoading3() {
+  spinnerText.textContent = 'Summoning spirit animals'
+}
