@@ -33,7 +33,7 @@
   flex-direction: column;
 }
 
-.nav-world_footer-right{
+.nav-world-footer-right{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -144,7 +144,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 350px;
+  width: 400px;
   color: #f1f3f3;
   font-size: 1rem;
   transition: box-shadow 0.3s ease-in-out;
@@ -172,7 +172,7 @@
   justify-content: space-evenly;
   margin: 16px 0px;
   font-size: 1rem;
-  gap: 5rem;
+  width: 100%;
 }
 
 

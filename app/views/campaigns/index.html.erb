@@ -21,7 +21,7 @@
               <% @campaigns.each do |campaign| %>
                 <div class="campaign-card relative">
                   <div class="card-world-name">
-                    <%=campaign.world_name %>
+                    <%=campaign.world_name.capitalize %>
                   </div>
                   <%= link_to campaign_path(campaign), class: "text-decoration-none" do %>
                     <div>
