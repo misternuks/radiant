@@ -20,6 +20,7 @@
         <% if @encounter.summary.present? %>
           <h3 class="text-center mb-3">Narrative</h3>
           <h5 class ='text-white p-2'><%= @summary %></h5>
+          <h5 class ='text-white p-2'> <%= @checking.criticality %> </h5>
           <hr>
         <% else %>
           <h4 class="text-center">After completing step 3, Radiant will display the generated narrative here.</h4>
