@@ -1,18 +1,18 @@
 <body class="bg-black text-white">
   <div class="container mt-5 pt-5 d-flex flex-column align-items-center">
     <h1 class="text-center">CAMPAIGNS</h1>
-    <h3 class="text-center p-3">Radiant crafts narration using the game master's world and the player's characters. To get started, create a new campaign, or click "Existing Campaigns" to load a previous one.</h3>
+    <h3 class="text-center p-3">Radiant uses details from your game session to craft a personalized introduction to your campaign. To get started, create a new campaign, or click "Existing Campaigns" to select from previous ones.</h3>
     <hr class="border border-top border-success border-2 w-100 mb-5">
     <%= link_to new_campaign_path(@campaign), class: 'text-decoration-none link-dark' do %>
       <div class="btn btn-success p-3 m-5" style="border-radius: 24px">
-        Create a new campaign
+        Create New Campaign
       </div>
     <% end %>
     <div class="accordion">
       <div class="accordion-item">
         <h2 class="accordion-header" id="headingOne">
           <button class="accordion-button" style="border-radius: 24px"type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-            Expand to see your existing campaigns
+            Existing Campaigns
           </button>
         </h2>
         <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
