@@ -4,6 +4,9 @@ const loadingSpinner = document.querySelector('.hidden-spinner')
 const spinnerArea = document.querySelector('.spinner-area')
 const spinnerText = document.querySelector('.spinner-text')
 
+// loading promps for spinner
+
+const loadingPrompts = ['Calibrating catapults','Spinning battle-axes','Buffing armor', 'Sharpening swords', 'Casting spells','Weaving magic', 'Enchanting arrows' ]
 
 
 // for form on encounter/edit
@@ -30,7 +33,7 @@ const formSkillTypeSlashing = document.querySelector('#encounter_skill_type_slas
 const formSkillTypeThunder = document.querySelector('#encounter_skill_type_thunder')
 
 
-console.log(encounterForm)
+
 // submits for encounter forms
 // formSkillTypeAcid.addEventListener("input", (event) => {
 //     formTarget.classList.add('form-visible')
@@ -113,27 +116,33 @@ console.log(encounterForm)
 encounterForm.addEventListener("submit", (event) => {
   loadingSpinner.classList.add('active-spinner');
   loadingSpinner.classList.remove('hidden-spinner');
+  spinnerText.textContent = loadingPrompts[Math.floor(Math.random()*loadingPrompts.length)];
   spinnerArea.remove();
   setTimeout(() => {
     changeLoading1()
-  }, 4000);
+  }, 3000);
 });
 
 
 function changeLoading1() {
-  spinnerText.textContent = 'Calibrating catapults'
+  spinnerText.textContent = loadingPrompts[Math.floor(Math.random()*loadingPrompts.length)];
   setTimeout(() => {
     changeLoading2()
-  }, 4000);
+  }, 3000);
 }
 
 function changeLoading2() {
-  spinnerText.textContent = 'Spinning battle-axes'
+  spinnerText.textContent = loadingPrompts[Math.floor(Math.random()*loadingPrompts.length)];
   setTimeout(() => {
     changeLoading3()
-  }, 4000);
+  }, 3000);
 }
-
 function changeLoading3() {
-  spinnerText.textContent = 'Summoning spirit animals'
+  spinnerText.textContent = loadingPrompts[Math.floor(Math.random()*loadingPrompts.length)];
+  setTimeout(() => {
+    changeLoading4()
+  }, 3000);
+}
+function changeLoading4() {
+  spinnerText.textContent = loadingPrompts[Math.floor(Math.random()*loadingPrompts.length)];
 }
