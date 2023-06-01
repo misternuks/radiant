@@ -10,22 +10,22 @@
     </div>
     <div class="category-wrapper border border-success border-3 rounded-0 bg-black d-flex flex-wrap mx-2 p-3 text-white">
       <%= simple_form_for [@campaign], html: { data: { controller: 'nested-form', nested_form_wrapper_selector_value: '.nested-form-wrapper' }} do |f| %>
-        <%= f.input :world_name, id: "form-field"%>
-        <%= f.input :world_biome,
+        <%= f.input :world_name, label:"Campaign name", id: "form-field"%>
+        <%= f.input :world_biome, label:"Biome",
           as: :radio_buttons,
           collection_wrapper_tag: 'div',
           collection_wrapper_class: 'category-wrapper',
           item_wrapper_class: 'category-item',
           input_html: {class: 'category-selector'},
           collection: Campaign::BIOMES %>
-        <%= f.input :world_weather,
+        <%= f.input :world_weather, label:"Weather",
           as: :radio_buttons,
           collection_wrapper_tag: 'div',
           collection_wrapper_class: 'category-wrapper',
           item_wrapper_class: 'category-item',
           input_html: {class: 'category-selector'},
           collection: Campaign::WEATHERS %>
-        <%= f.input :world_mood,
+        <%= f.input :world_mood, label:"Mood",
           as: :radio_buttons,
           collection_wrapper_tag: 'div',
           collection_wrapper_class: 'category-wrapper',
@@ -51,7 +51,7 @@
         <div></div>
         <div></div>
       </div>
-      <div class="title pt-4 ms-3">
+      <div class="title pt-4 ms-3 text-white">
         <p id='spinner-text'>Generating biome</p>
       </div>
     </div>
