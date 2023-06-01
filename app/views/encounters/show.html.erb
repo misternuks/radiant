@@ -20,7 +20,6 @@
         <% if @encounter.summary.present? %>
           <h3 class="text-center mb-3">Narrative</h3>
           <h5 class ='text-white p-2'><%= @summary %></h5>
-          <h5 class ='text-white p-2'> <%= @checking.criticality %> </h5>
           <hr>
         <% else %>
           <h4 class="text-center">After completing step 3, Radiant will display the generated narrative here.</h4>
@@ -32,7 +31,7 @@
           <li class="combantant-card">
             <div class="card-product">
               <%= link_to edit_campaign_encounter_path(campaign_id: @campaign.id, character: player.character_name), class: 'text-decoration-none text-white' do %>
-                <span><%= image_tag "warrior-portrait.jpg", class: "img" %></span>
+                <span><%= image_tag "warrior-portrait.jpg", class: "img", style: "border-radius: 16px 0  0 16px;" %></span>
                 <div class="card-product-infos">
                   <span><%= player.character_name %></span>
               <% end %>
@@ -44,7 +43,7 @@
           <li class="combantant-card">
             <div class="card-product">
               <%= link_to edit_campaign_encounter_path(campaign_id: @campaign.id, enemy: enemy.name), class: 'text-decoration-none text-white' do %>
-                <span><%= image_tag "goblin.png", class: "img bg-black bg-opacity-75" %></span>
+                <span><%= image_tag "goblin.png", class: "img bg-black bg-opacity-75", style: "border-radius: 16px 0  0 16px; height: 118px;" %></span>
                 <div class="card-product-infos">
                   <span><%= enemy.name %></span>
               <% end %>

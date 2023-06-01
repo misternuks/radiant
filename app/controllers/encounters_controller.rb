@@ -55,7 +55,6 @@ class EncountersController < ApplicationController
   def update
     @encounter = Encounter.find(params[:id])
     authorize @encounter
-    raise
     if @encounter.update(encounter_params)
       redirect_to encounter_path(@encounter)
     else

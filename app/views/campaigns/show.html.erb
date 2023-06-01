@@ -2,7 +2,7 @@
   <div class="nav-world-container">
     <div class="smaller-card">
       <div class="nav-world-card-header">
-        <h3 class="header-text"><%= @campaign.world_name %></h3>
+        <h3 class="header-text"><%= @campaign.world_name.capitalize %></h3>
       </div>
       <div class="nav-world-card-image">
         <%= image_tag "#{@campaign.world_biome}.jpg"%>
