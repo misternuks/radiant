@@ -24,3 +24,17 @@ $border-radius-lg: 2px;
 $border-radius-sm: 2px;
 
 // Override other variables below!
+
+// Accordion
+$accordion-button-color: white;
+$accordion-button-bg: $success;
+$accordion-button-active-bg: $success;
+$accordion-button-active-color: white;
+$accordion-color: transparent;
+$accordion-bg: transparent;
+$accordion-border-width: 1px;
+$accordion-border-color: $success;
+$accordion-button-focus-border-color: transparent;
+$accordion-button-focus-box-shadow: transparent;
+$accordion-border-radius: 24px;
+$accordion-inner-border-radius:           subtract($accordion-border-radius, $accordion-border-width);
