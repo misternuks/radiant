@@ -3,3 +3,4 @@
 //= link_tree ../builds
 //= link campaign.js
 //= link encounter.js
+//= link encounter-form.js
