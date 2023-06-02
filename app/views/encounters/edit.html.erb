@@ -8,9 +8,8 @@
       <% end %>
     </div>
     <h4 class='text-center text-muted pt-2 pb-3'>Step 3 of 3</h4>
-      <h4 class='text-center text-white'>Based on combatant dice rolls, complete step 3 to generate narrative</h4>
+    <h4 class='text-center text-white'>Select the combatant's damage type and target, then roll for hit and killing blow. Complete this step to generate narrative.</h4>
     <hr class="border border-top border-success border-2 w-100 mb-3">
-
     <%= simple_form_for [@campaign, @encounter], html: { class: 'encounter-form' } do |f| %>
       <%# <div class="nav-world-card" style="align-items: center"> %>
       <div style="position: relative">
@@ -24,7 +23,7 @@
       </div>
       <div style="display:flex; flex-direction: column">
         <div class="nav-world-card" style="padding: 25px">
-            <%= f.input :target,
+          <%= f.input :target,
                 as: :radio_buttons,
                 collection_wrapper_tag: 'div',
                 collection_wrapper_class: 'target-wrapper',
@@ -38,22 +37,20 @@
           <% f.hidden_field :summary, :value => "hello" %>
           <%= f.button :submit, 'Generate combat results', class: 'btn purple-button spinner-area', id: 'encounter-submit' %>
         </div>
-    <% end %>
-
-        <div class="hidden-spinner mt-5 me-4" style="margin-bottom: 35px">
-          <div class="loader">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
-          <div class="title pt-4 ms-3">
-            <p class ='text-white spinner-text'><%= "Sharpening swords"%></p>
-          </div>
+      <% end %>
+      <div class="hidden-spinner mt-5 me-4" style="margin-bottom: 35px">
+        <div class="loader">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <div class="title pt-4 ms-3">
+          <p class ='text-white spinner-text'><%= "Sharpening swords"%></p>
         </div>
       </div>
-      <%# <form-hidden toggle> %>
-
+    </div>
+    <%# <form-hidden toggle> %>
     <%# </div> %>
     <%# </div> %>
   </div>
