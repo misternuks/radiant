@@ -79,7 +79,12 @@ display: none;
 
 
 .body-404 {
-  background-image: url("404.jpg");
+  background-image: url("404.png");
+  height: 100vh;
+}
+
+.body-500 {
+  background-image: url("500.png");
   height: 100vh;
 }
 

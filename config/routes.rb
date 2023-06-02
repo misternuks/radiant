@@ -11,6 +11,4 @@ Rails.application.routes.draw do
   end
   resources :encounters, only: %i[index show update]
   resources :players, only: %i[destroy]
-
-  get '*path' => redirect('/404')
 end
