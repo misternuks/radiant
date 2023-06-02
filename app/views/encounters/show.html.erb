@@ -14,10 +14,8 @@
         </h1>
       <% end %>
       <h4 class='text-center text-muted pt-2 pb-3'>Step 2 of 3</h4>
-      <h4 class='text-center text-white pb-2'>Roll for initiative. You can shuffle the combatant cards and put them in order from highest to lowest roll. Then, choose the current combatant to proceed.</h4>
-      <hr>
-      <%# put accordion here %>
-      <div class="accordion mt-5">
+      <% if @encounter.summary.present? %>
+        <div class="accordion">
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingOne">
             <% if @encounter.summary.present? %>
@@ -42,8 +40,14 @@
           </div>
         </div>
       </div>
+      <% else %>
+         <h4 class='text-center text-white pb-2'>Roll for initiative. You can shuffle the combatant cards and put them in order from highest to lowest roll. Then, choose the current combatant to proceed.</h4>
+      <% end %>
+      <hr>
+      <%# put accordion here %>
+
       <%# end accordion here %>
-      <ul data-controller="sortable" data-sortable-animation-value="150" class="container d-flex align-items-center justify-content-center flex-wrap gap-2 mt-4">
+      <ul data-controller="sortable" data-sortable-animation-value="150" class="container d-flex align-items-center justify-content-center flex-wrap gap-2 mt-2">
         <% i = 1 %>
         <% @encounter.players.each do |player| %>
           <li class="combantant-card">
