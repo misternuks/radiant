@@ -4,4 +4,3 @@
 //= link campaign.js
 //= link encounter.js
 //= link encounter-form.js
-//= link narrative-modal.js
