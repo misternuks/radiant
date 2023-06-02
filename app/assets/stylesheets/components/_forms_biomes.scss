@@ -44,56 +44,70 @@
 
 #campaign_world_biome_forest + label {
   color: green;
+  @include fa-icon-solid($fa-var-tree)
 }
 
 #campaign_world_biome_forest:checked + label {
   background-color: green;
+  @include fa-icon-solid($fa-var-tree)
 }
 
 #campaign_world_biome_desert + label {
   color: #FFC65A;
+  @include fa-icon-solid($fa-var-sun-plant-wilt)
 }
 
 #campaign_world_biome_desert:checked + label {
   background-color: #ce9630;
+  @include fa-icon-solid($fa-var-sun-plant-wilt)
 }
 
 #campaign_world_biome_jungle + label {
   color: #67803c;
+  @include fa-icon-solid($fa-var-seedling)
 }
 
 #campaign_world_biome_jungle:checked + label {
   background-color: #67803c;
+  @include fa-icon-solid($fa-var-seedling)
 }
 
 #campaign_world_biome_plains + label {
   color: #dac865;
+  @include fa-icon-solid($fa-var-person-hiking)
 }
 
 #campaign_world_biome_plains:checked + label {
   background-color: #b49c55;
+  @include fa-icon-solid($fa-var-person-hiking)
 }
 
 #campaign_world_biome_cavern + label {
   color: #a67237;
+  @include fa-icon-solid($fa-var-mountain-sun)
 }
 
 #campaign_world_biome_cavern:checked + label {
   background-color: #573c1d;
+  @include fa-icon-solid($fa-var-mountain-sun)
 }
 
 #campaign_world_biome_tundra + label {
   color: #62DDF5;
+  @include fa-icon-solid($fa-var-igloo)
 }
 
 #campaign_world_biome_tundra:checked + label {
   background-color: #41b1c7;
+  @include fa-icon-solid($fa-var-igloo)
 }
 
 #campaign_world_biome_city + label {
   color: grey;
+  @include fa-icon-solid($fa-var-city)
 }
 
 #campaign_world_biome_city:checked + label {
   background-color: grey;
+  @include fa-icon-solid($fa-var-city)
 }

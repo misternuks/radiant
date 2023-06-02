@@ -1,47 +1,63 @@
 #campaign_world_mood_comedic + label {
-  color: green;
+  color: red;
+  @include fa-icon-solid($fa-var-masks-theater)
 }
 
 #campaign_world_mood_comedic:checked + label {
-  background-color: green;
+  background-color: rgb(179, 4, 4);
+  @include fa-icon-solid($fa-var-masks-theater)
 }
 
 #campaign_world_mood_romantic + label {
-  color: #FFC65A;
+  color: pink;
+  @include fa-icon-solid($fa-var-heart)
 }
 
 #campaign_world_mood_romantic:checked + label {
-  background-color: #ce9630;
+  background-color: rgb(176, 131, 139);
+  @include fa-icon-solid($fa-var-heart)
 }
 
 #campaign_world_mood_dark + label {
-  color: #67803c;
+  color: purple;
+  @include fa-icon-solid($fa-var-skull)
 }
 
 #campaign_world_mood_dark:checked + label {
-  background-color: #67803c;
+  background-color: purple;
+  @include fa-icon-solid($fa-var-skull)
 }
 
 #campaign_world_mood_epic + label {
   color: #dac865;
+  @include fa-icon-solid($fa-var-book-bookmark)
 }
 
 #campaign_world_mood_epic:checked + label {
   background-color: #b49c55;
+  @include fa-icon-solid($fa-var-book-bookmark)
 }
 
 #campaign_world_mood_medieval + label {
   color: #a67237;
+  @include fa-icon-solid($fa-var-shield)
 }
 
 #campaign_world_mood_medieval:checked + label {
   background-color: #573c1d;
+  @include fa-icon-solid($fa-var-shield)
 }
 
 #campaign_world_mood_high + label {
   color: #62DDF5;
+  @include fa-icon-solid($fa-var-wand-sparkles)
 }
 
 #campaign_world_mood_high:checked + label {
   background-color: #41b1c7;
+  @include fa-icon-solid($fa-var-wand-sparkles)
+}
+
+label:before {
+  margin-right: 1rem;
 }
