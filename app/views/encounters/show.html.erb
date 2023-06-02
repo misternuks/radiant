@@ -1,7 +1,7 @@
 <% content_for :meta_title, "#{@encounter.players.last.campaign.world_name
 } is on #{DEFAULT_META["meta_product_name"]}" %>
 <%#=Meta Information Above"%>
-<body class='world-background-image-div'>
+<body class='bg-black text-white'>
   <div class="container d-flex flex-column mt-5 pt-5">
     <div>
       <% if @encounter.summary.present? %>
@@ -14,35 +14,58 @@
         </h1>
       <% end %>
       <h4 class='text-center text-muted pt-2 pb-3'>Step 2 of 3</h4>
-      <h4 class='text-center text-white pb-2'>After rolling for initiative, click the player or enemy who will attack.</h4>
+      <% if @encounter.summary.present? %>
+        <div class="accordion">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+              <% if @encounter.summary.present? %>
+                <button class="accordion-button" style="border-radius: 24px"type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  Display Narrative
+                </button>
+              <% end %>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <%# put stuff in the accordion here %>
+                <div class="text-white">
+                  <% if @encounter.summary.present? %>
+                    <h3 class="text-center mb-3">Narrative</h3>
+                    <h5 class ='text-white p-2'><%= @summary %></h5>
+                  <% else %>
+                    <p class="text-center mb-0">The combat narrative for this round will be displayed here after step 3.</p>
+                  <% end %>
+                </div>
+                <%# end accordion stuff here %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% else %>
+        <h4 class='text-center text-white pb-2'>Roll for initiative. You can shuffle the combatant cards and put them in order from highest to lowest roll. Then, choose the current combatant to proceed.</h4>
+      <% end %>
       <hr>
-      <div>
-        <% if @encounter.summary.present? %>
-          <h3 class="text-center mb-3">Narrative</h3>
-          <h5 class ='text-white p-2'><%= @summary %></h5>
-          <hr>
-        <% else %>
-          <h4 class="text-center p-2">After completing step 3, Radiant will display the generated narrative here.</h4>
-        <% end %>
-      </div>
-      <ul data-controller="sortable" data-sortable-animation-value="150" class="container d-flex align-items-center justify-content-center flex-wrap gap-2">
+      <%# put accordion here %>
+      <%# end accordion here %>
+      <ul data-controller="sortable" data-sortable-animation-value="150" class="container d-flex align-items-center justify-content-center flex-wrap gap-2 mt-2">
+        <% i = 1 %>
         <% @encounter.players.each do |player| %>
           <li class="combantant-card">
             <div class="card-product">
               <%= link_to edit_campaign_encounter_path(campaign_id: @campaign.id, character: player.character_name), class: 'text-decoration-none text-white' do %>
-                <span><%= image_tag "warrior-portrait.jpg", class: "img" %></span>
+                <span><%= image_tag "player#{i}.jpg", class: "img", style: "border-radius: 16px 0  0 16px;" %></span>
                 <div class="card-product-infos">
                   <span><%= player.character_name %></span>
                 <% end %>
               </div>
             </div>
           </li>
+          <% i += 1 %>
         <% end %>
         <% @encounter.enemies.each do |enemy| %>
           <li class="combantant-card">
             <div class="card-product">
               <%= link_to edit_campaign_encounter_path(campaign_id: @campaign.id, enemy: enemy.name), class: 'text-decoration-none text-white' do %>
-                <span><%= image_tag "goblin.png", class: "img bg-black bg-opacity-75" %></span>
+                <span><%= image_tag "goblin.jpg", class: "img bg-black bg-opacity-75", style: "border-radius: 16px 0  0 16px; height: 118px;" %></span>
                 <div class="card-product-infos">
                   <span><%= enemy.name %></span>
                 <% end %>
@@ -51,6 +74,9 @@
           </li>
         <% end %>
       </ul>
+    </div>
+    <div class="text-center mt-2 mb-3">
+      <%= link_to 'Exit Combat', campaigns_path, class: "btn purple-button m-2"%>
     </div>
   </div>
 </div>

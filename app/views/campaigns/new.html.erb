@@ -2,9 +2,9 @@
 <% div_2_info = (%w[forest desert jungle plains cavern tundra city] -[div_1_info]).sample %>
 <% div_3_info = (%w[forest desert jungle plains cavern tundra city] - [div_1_info,div_2_info]).sample %>
 <body class="bg-black">
-  <div class="container d-flex flex-column mt-5 pt-5 justify-content-center align-items-center">
+  <div class="container d-flex flex-column mt-5 py-5 justify-content-center align-items-center">
     <div>
-      <h1 class="text-center">CAMPAIGN CREATION FORM</h1>
+      <h1 class="text-center">CAMPAIGN CREATION</h1>
       <h3 class="text-center p-3">Name your campaign, then decide your session biome, weather, and mood. These can be changed later.
       </h3>
     </div>
@@ -41,10 +41,10 @@
         <button class="btn btn-success m-2" type="button" data-action="nested-form#add">Add character</button>
       </div>
       <div class="d-grid gap-2 col-3 pt-3 pb-3 mx-auto spinner-area">
-        <%= f.button :submit, "Create world", class: "btn purple-button", style: "width: auto"%>
+        <%= f.button :submit, "Create Campaign", class: "btn purple-button", style: "width: auto"%>
       </div>
     <% end %>
-    <div class="hidden-spinner mt-5 me-4">
+    <div class="hidden-spinner mt-5 me-4 mb-2">
       <div class="loader">
         <div></div>
         <div></div>
