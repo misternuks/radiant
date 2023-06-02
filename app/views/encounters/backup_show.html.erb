@@ -27,7 +27,7 @@
       <% @encounter.enemies.each do |enemy| %>
         <div class="encounter-player-icon">
           <%= link_to edit_campaign_encounter_path(campaign_id: @campaign.id, enemy: enemy.name), class: 'text-decoration-none link-dark' do %>
-            <%= image_tag "goblin.png"%>
+            <%= image_tag "goblin.jpg"%>
             <span><%= enemy.name %></span>
           <% end %>
         </div>

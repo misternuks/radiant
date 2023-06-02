@@ -9,12 +9,12 @@
     </div>
     <h4 class='text-center text-muted pt-2 pb-3'>Step 3 of 3</h4>
       <h4 class='text-center text-white'>Based on combatant dice rolls, complete step 3 to generate narrative</h4>
-    <hr class="border border-top border-success border-2 w-100 mb-5">
+    <hr class="border border-top border-success border-2 w-100 mb-3">
 
     <%= simple_form_for [@campaign, @encounter], html: { class: 'encounter-form' } do |f| %>
       <%# <div class="nav-world-card" style="align-items: center"> %>
       <div style="position: relative">
-        <span class="icon-text">SELECT YOUR DMG TYPE</span>
+        <span class="icon-text" id="icon-slot">SELECT YOUR DMG TYPE</span>
         <div class="icon">
           <ul class="menu">
             <%= f.collection_radio_buttons :skill_type, [['acid', 'Acid'], ['bludgeoning', 'Bludgeoning'], ['cold', 'Cold'], ['fire', 'Fire'], ['force', 'Force'],['lightning', 'Lightning'], ['necrotic', 'Necrotic'],['piercing', 'Piercing'], ['poison', 'Poison'],['psychic', 'Psychic'],['radiant', 'Radiant'],['slashing', 'Slashing'],['thunder', 'Thunder']],:first, :last, selected:' ',
@@ -32,7 +32,7 @@
                 input_html: {class: 'target-selector' },
                 collection: @combatant %>
         </div>
-        <div class="nav-world-card" style="padding: 25px">
+        <div class="nav-world-card" style="padding: 25px;">
           <%= f.input :success, as: :boolean, :label => 'Toggle if target is hit', input_html: { class: "form-hidden toggle" }, id: 'encounter_success' %>
           <%= f.input :criticality, as: :boolean, :label => 'Toggle if target is killed', input_html: { class: "form-hidden toggle" }, id: 'encounter_criticality' %>
           <% f.hidden_field :summary, :value => "hello" %>
@@ -40,7 +40,7 @@
         </div>
     <% end %>
 
-        <div class="hidden-spinner mt-5 me-4">
+        <div class="hidden-spinner mt-5 me-4" style="margin-bottom: 35px">
           <div class="loader">
             <div></div>
             <div></div>
