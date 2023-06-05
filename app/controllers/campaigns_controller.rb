@@ -16,6 +16,22 @@ class CampaignsController < ApplicationController
     # end
   end
 
+  def edit
+    @campaign = Campaign.find(params[:id])
+    @players = @campaign.players
+    authorize @campaign
+  end
+
+  def update
+    @campaign = Campaign.find(params[:id])
+    authorize @campaign
+    if @campaign.update(campaign_params)
+      redirect_to campaign_path(@campaign)
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   def new
     @campaign = Campaign.new
     @user = current_user

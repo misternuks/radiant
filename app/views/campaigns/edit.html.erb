@@ -1,22 +1,58 @@
-<% @players.each do |player| %>
-  <%= player.player_name %>
-<% end %>
-<div class="container">
-  <%= simple_form_for [@campaign], html: { data: { controller: 'nested-form', nested_form_wrapper_selector_value: '.nested-form-wrapper' }} do |f| %>
-    <%= f.input :world_name%>
-    <%= f.input :world_biome, :collection => %i[forest desert jungle plains cavern tundra city] %>
-    <%= f.input :world_weather, :collection => %i[clear cloudy rainy snowy windy stormy] %>
-    <%= f.input :world_mood, :collection => %i[comedic romantic dark epic medieval high] %>
-    <template data-nested-form-target="template">
-      <%= f.fields_for :players, Player.new, child_index: 'NEW_RECORD' do |player_fields| %>
-        <%= render "player_form", f: player_fields %>
-      <% end %>
-    </template>
-    <div data-nested-form-target="target"></div>
-    <button type="button" data-action="nested-form#add">Add character</button>
-    <div class="d-grid gap-2 col-3 mx-auto">
-      <%= f.button :submit, "Create world", class: "btn btn-primary"%>
-      <input class="btn btn-success" type="reset" value="Reset form">
+<body class="bg-black">
+  <div class="container d-flex flex-column mt-5 py-5 justify-content-center align-items-center">
+    <div>
+      <h1 class="text-center">CAMPAIGN CREATION</h1>
+      <h3 class="text-center p-3">Name your campaign, then decide your session biome, weather, and mood. These can be changed later.
+      </h3>
     </div>
-  <% end %>
+    <div class="category-wrapper border border-success border-3 rounded-0 bg-black d-flex flex-wrap mx-2 p-4 text-white">
+      <%= simple_form_for [@campaign], html: { data: { controller: 'nested-form', nested_form_wrapper_selector_value: '.nested-form-wrapper' }} do |f| %>
+        <%= f.input :world_name, label:"Campaign name", id: "form-field"%>
+        <%= f.input :world_biome, label:"Biome",
+          as: :radio_buttons,
+          collection_wrapper_tag: 'div',
+          collection_wrapper_class: 'category-wrapper',
+          item_wrapper_class: 'category-item',
+          input_html: {class: 'category-selector'},
+          collection: Campaign::BIOMES %>
+        <%= f.input :world_weather, label:"Weather",
+          as: :radio_buttons,
+          collection_wrapper_tag: 'div',
+          collection_wrapper_class: 'category-wrapper',
+          item_wrapper_class: 'category-item',
+          input_html: {class: 'category-selector'},
+          collection: Campaign::WEATHERS %>
+        <%= f.input :world_mood, label:"Mood",
+          as: :radio_buttons,
+          collection_wrapper_tag: 'div',
+          collection_wrapper_class: 'category-wrapper',
+          item_wrapper_class: 'category-item',
+          input_html: {class: 'category-selector'},
+          collection: Campaign::MOODS %>
+        <template data-nested-form-target="template">
+          <%= f.fields_for :players, Player.new, child_index: 'NEW_RECORD' do |player_fields| %>
+            <%= render "player_form", f: player_fields %>
+          <% end %>
+        </template>
+        <div data-nested-form-target="target"></div>
+        <button class="btn btn-success m-2" type="button" data-action="nested-form#add">Add character</button>
+      </div>
+      <div class="d-grid gap-2 col-3 pt-3 pb-3 mx-auto spinner-area">
+        <%= f.button :submit, "Create Campaign", class: "btn purple-button", style: "width: auto"%>
+      </div>
+    <% end %>
+    <div class="hidden-spinner mt-5 me-4 mb-2">
+      <div class="loader">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="title pt-4 ms-3 text-white">
+        <p id='spinner-text'>Generating biome</p>
+      </div>
+    </div>
+  </div>
 </div>
+</body>
+<%= javascript_include_tag 'campaign' %>
