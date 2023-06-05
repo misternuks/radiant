@@ -23,7 +23,7 @@
 }
 
 .nav-world-player-list{
-  display: grid;
+  display: flex;
   grid-template-columns: 1fr 1fr;
   grid-gap: 6px 12px;
 }
