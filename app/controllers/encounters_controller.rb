@@ -34,6 +34,10 @@ class EncountersController < ApplicationController
 
   def edit
     @encounter = Encounter.find(params[:id])
+    @encounter.skill_type = nil
+    @encounter.success = false
+    @encounter.criticality = false
+
     # Combatant is an array containing player and enemies names
     # formatted for radio collection
     @combatant = []
